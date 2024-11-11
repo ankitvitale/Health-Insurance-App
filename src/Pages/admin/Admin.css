@@ -1,0 +1,172 @@
+.admin-header {
+  height: 85px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px;
+}
+.header-icon img {
+  width: 180px;
+}
+a {
+  font-size: 17px;
+  font-family: "Lato", sans-serif;
+  font-weight: 500;
+  margin: 5px;
+  display: flex;
+  gap: 12px;
+}
+.work img{
+  width: 40px;
+}
+.sidebar {
+  height: 100vh;
+  width: 300px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1px;
+  font-family: "Lato", sans-serif;
+
+}
+aside {
+  display: flex;
+}
+section {
+  background: #dde5e7;
+  width: 100%;
+
+}
+.sidebar button {
+  background-color: #dde5e7;
+  color: black;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+  border: none;
+  width: 120px;
+  border-radius: 4px;
+  padding: 5px;
+  cursor: pointer;
+}
+.items {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+}
+.items1 {
+  height: 600px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 20px;
+  display: none;
+}
+
+.hospital,
+.health,
+.admin-customers {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.hospital h5{
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+
+}
+.i{
+   color: #0561d2;
+}
+.health h5{
+ font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  /* color: rgb(19, 19, 187); */
+
+}
+.admin-customers h5 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 19px;
+  /* color: rgb(19, 19, 187); */
+
+}
+.hidden {
+  position: absolute;
+  top: 65px;
+  display: none;
+}
+@media (max-width: 480px) {
+
+  .header-icon img{
+    width: 100px;
+  }
+  .admin-logo h5{
+    font-size: 12px;
+  }
+  .sidebar {
+    display: none;
+  }
+  .hidden {
+    display: block;
+  }
+  a {
+    font-size: 14px;
+    font-family: "Lato", sans-serif;
+    font-weight: 500;
+  }
+  .hospital,
+  .health,
+  .admin-customers h5 {
+    font-size: 14px;
+  }
+  .dash{
+    height: 35px;
+    align-items: center;
+    display: flex;
+  }
+  .dash button {
+    font-size: 14px;
+    background-color: #dde5e7;
+    color: black;
+    border: none;
+    padding: 5px;
+    width: 100px;
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+  }
+
+  .items1 {
+    margin-top: 35px;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    background-color: #fafbfbe7;
+    width: 100%;
+    height: auto;
+    animation: slide .6s linear;
+    
+  }
+  @keyframes slide {
+    0%{
+        transform: scale(0); 
+    }
+    50%{
+       transform: scale(1);
+    }
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px){
+  section {
+    width: 80%;
+  
+  }
+  .admin-header{
+    flex-direction: row;
+  }
+}

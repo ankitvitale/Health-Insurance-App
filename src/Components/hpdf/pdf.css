@@ -1,0 +1,58 @@
+.body th,td{
+    text-align: left;
+}
+.apdf{
+    background-color: rgb(0 146 253 / 21%);
+    color: black;
+}
+.ppdf{
+padding: 5px;    font-weight: 700;
+   
+}
+
+.container1 {
+    width: 100%;
+    max-width: 210mm; /* A4 width */
+    height: 297mm; /* A4 height */
+    margin: auto;
+    padding: 20mm; /* Space inside the A4 */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    background-color: white;
+    border: 1px solid #ddd;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .header {
+    border-bottom: 2px solid #ccc;
+    padding-bottom: 10px;
+  }
+  
+  .main-content {
+    margin: 20px 0;
+  }
+  .title-bg {
+    background-color: #bfdef4;
+    padding: 10px; /* Optional: add some padding */
+  }
+  
+  .footer {
+    margin-top: 20px;
+    font-size: 10px;
+    color: #555;
+  }
+  
+  .print-button {
+    display: inline-block;
+    background-color: #007BFF;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .print-button:hover {
+    background-color: #0056b3;
+  }
+  
