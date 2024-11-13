@@ -6,7 +6,7 @@ function AllHospitalList() {
     useEffect(() => {
         async function getData() {
             try { 
-                let url = 'http://82.112.237.134:8080/AllhospitalsList';
+                let url = `${process.env.REACT_APP_API_KEY}/AllhospitalsList`;
                 
                 let response = await fetch(url, {
                     method: 'GET', 
@@ -38,7 +38,7 @@ function AllHospitalList() {
 
     const updateStatus = async (id, status) => {
         try {
-            let url = `http://localhost:8080/customer/${id}/status`;
+            let url = `${process.env.REACT_APP_API_KEY}/customer/${id}/status`;
             let response = await fetch(url, {
                 method: 'PATCH',
                 headers: {

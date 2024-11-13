@@ -31,7 +31,7 @@ function EditBeneficiary() {
     useEffect(() => {
         async function fetchBeneficiary() {
             try {
-                let url = `http://localhost:8080/benificiaries/${id}`;
+                let url = `${process.env.REACT_APP_API_KEY}/benificiaries/${id}`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

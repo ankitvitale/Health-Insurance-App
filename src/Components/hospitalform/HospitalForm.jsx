@@ -22,7 +22,7 @@ const HospitalComponent = () => {
     remark: ''
   });
 
-  let url = 'http://localhost:8080/addHospital'
+  let url = `${process.env.REACT_APP_API_KEY}/addHospital`
 
   const handleChange = (e) => {
     const { name, value } = e.target;

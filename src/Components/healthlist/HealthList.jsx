@@ -51,7 +51,7 @@ const HealthList = () => {
     const fetchCleamRequests = async () => {
       const token = localStorage.getItem('token');
       try {
-        let response = await fetch(`http://localhost:8080/adminHeathCheckupList`, {
+        let response = await fetch(`${process.env.REACT_APP_API_KEY}/adminHeathCheckupList`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -85,7 +85,7 @@ const HealthList = () => {
         )
       );
 
-      let url = `http://localhost:8080/healthCheckupAuthorized/${id}`;
+      let url = `${process.env.REACT_APP_API_KEY}/healthCheckupAuthorized/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

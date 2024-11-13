@@ -16,7 +16,6 @@
 //     useEffect(() => {
 //       async function getData() { 
 //           try {
-//               let url = `http://localhost:8080/cleamRequest/${id}`;
 //               let response = await fetch(url, {
 //                   method: 'GET',
 //                   headers: {

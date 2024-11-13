@@ -64,7 +64,6 @@
 //             }
             
 //             try {
-//                 let url = 'http://localhost:8080/hospitalCleamRequests';
 //                 let response = await fetch(url, {
 //                     method: 'GET',
 //                     headers: {
@@ -293,7 +292,7 @@ const DischargeModal = ({ claimId, onClose }) => {
         formData.append('dischargecard', dischargeCard);
 
         try {
-            const response = await fetch(`http://localhost:8080/updateCleamRequest/${claimId}`, {
+            const response = await fetch(`${process.env.REACT_APP_API_KEY}/updateCleamRequest/${claimId}`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${token}`,

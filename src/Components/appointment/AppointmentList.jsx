@@ -76,7 +76,7 @@ console.log(process.env.REACT_APP_API_KEY)
                 )
             );
 
-            let url = `http://localhost:8080/AppoinmentStatusReject/${id}`;
+            let url = `${process.env.REACT_APP_API_KEY}/AppoinmentStatusReject/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

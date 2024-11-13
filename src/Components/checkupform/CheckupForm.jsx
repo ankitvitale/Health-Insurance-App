@@ -22,7 +22,7 @@ const HealthCheckupForm = () => {
     formData.append("employeeName", employeeName);
     formData.append("depermentName", depermentName);
     formData.append("pesentName", pesentName);
-    formData.append("location", location); 
+    formData.append("location", location);
     formData.append("coupon", coupon);
     formData.append("doc1", doc1);
     formData.append("status", status);
@@ -31,7 +31,7 @@ const HealthCheckupForm = () => {
 
     try {
       const response = await fetch(
-        `${process.env.REACT_APP_API_KEY}:8080/healthCheckupReqest`, 
+        `${process.env.REACT_APP_API_KEY}:8080/healthCheckupReqest`,
         {
           method: "POST",
           headers: {
@@ -40,7 +40,8 @@ const HealthCheckupForm = () => {
           body: formData,
         }
       );
-console.log(formData)
+      console.log(formData)
+      resetForm()
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
@@ -51,6 +52,18 @@ console.log(formData)
     } catch (error) {
       console.error("Error submitting request:", error);
     }
+  };
+
+  const resetForm = () => {
+    setHospital('')
+    setCardNo('')
+setEmployeeName('')
+setDepermentName('')
+setPesentName('')
+setLocation('')
+setCoupon('')
+setDoc1('')
+setStatus('')
   };
 
   return (

@@ -6,7 +6,7 @@ function PaymentList() {
         async function getData() {
             const token = localStorage.getItem('token');
             try { 
-                let url = 'http://localhost:8080/getAllHospitalPayments';
+                let url = `${process.env.REACT_APP_API_KEY}/getAllHospitalPayments`;
                 
                 let response = await fetch(url, {
                     method: 'GET', 

@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import './ClaimFrom.css';
 
 const ClaimRequestForm = () => {
-  const [employeeName, setEmployeeName] = useState(""); 
+  const [employeeName, setEmployeeName] = useState("");
   const [patientName, setPatientName] = useState("");
   const [healthCardNo, setHealthCardNo] = useState("");
   const [departmentName, setDepartmentName] = useState("");
@@ -46,7 +46,7 @@ const ClaimRequestForm = () => {
       parseFloat(medicinesConsumablesCost || 0) +
       parseFloat(doctorFeeSurgeonAss || 0) +
       parseFloat(surgeonAnesthetistVisitCharges || 0);
-    
+
     setTotalExpenseHospitalization(total.toFixed(2));
   };
 
@@ -94,12 +94,12 @@ const ClaimRequestForm = () => {
     formData.append("cutumnbpramanpatra", cutumnbpramanpatra);
     formData.append("status", status);
 
- 
+
     try {
-    const token = localStorage.getItem("jwtToken");
-console.log(token)
+      const token = localStorage.getItem("jwtToken");
+      console.log(token)
       const response = await fetch(
-        `${process.env.REACT_APP_API_KEY}/createCleamRequest`, 
+        `${process.env.REACT_APP_API_KEY}/createCleamRequest`,
         {
           method: "POST",
           headers: {
@@ -161,7 +161,7 @@ console.log(token)
     <>
       <form onSubmit={handleSubmit} className="claim-form" encType="multipart/form-data">
         <div className="form-container">
-        
+
           <div>
             <label>Employee Name</label>
             <input
@@ -172,7 +172,7 @@ console.log(token)
             />
           </div>
 
-         
+
           <div>
             <label>Patient Name</label>
             <input
@@ -183,7 +183,7 @@ console.log(token)
             />
           </div>
 
-         
+
           <div>
             <label>Health Card No</label>
             <input
@@ -377,9 +377,9 @@ console.log(token)
           <div>
             <label>Total Expense Hospitalization</label>
             <input
-                   type="number"
-                   value={totalExpenseHospitalization}
-                   readOnly
+              type="number"
+              value={totalExpenseHospitalization}
+              readOnly
             />
           </div>
 
@@ -454,8 +454,8 @@ console.log(token)
           </div>
 
           <div>
-       
-        <label>Cutumnb Pramanpatra</label>
+
+            <label>Cutumnb Pramanpatra</label>
             <input
               type="file"
               onChange={(e) => setCutumnbpramanpatra(e.target.files[0])}
