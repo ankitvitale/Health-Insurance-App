@@ -56,7 +56,7 @@ function Home() {
             console.log('Form submitted:', formData);
             
             // Make a POST request using fetch
-            const response = await fetch('http://localhost:8080/appointment', {
+            const response = await fetch(`${process.env.REACT_APP_API_KEY}/appointment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

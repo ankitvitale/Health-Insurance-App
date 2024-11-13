@@ -37,7 +37,7 @@ console.log(data)
 
     const updateStatus = async (id, status) => {
         try {
-            let url = `http://localhost:8080/customer/${id}/status`;
+            let url = `${process.env.REACT_APP_API_KEY}/customer/${id}/status`;
             let response = await fetch(url, {
                 method: 'PATCH',
                 headers: {

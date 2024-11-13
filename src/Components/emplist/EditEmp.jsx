@@ -94,7 +94,7 @@ function EditBeneficiary() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            let url = `http://localhost:8080/updateBenificiary/${id}`;
+            let url = `${process.env.REACT_APP_API_KEY}/updateBenificiary/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

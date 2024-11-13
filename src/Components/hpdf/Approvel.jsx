@@ -14,7 +14,7 @@ const Approvel = () => {
   useEffect(() => {
     async function getData() {
       try {
-        let url = `http://localhost:8080/cleamRequest/${id}`;
+        let url = `${process.env.REACT_APP_API_KEY}/cleamRequest/${id}`;
         let response = await fetch(url, {
           method: 'GET',
           headers: {
@@ -37,7 +37,7 @@ const Approvel = () => {
     getData();
   }, [id, token]);
 
-console.log(data)
+  console.log(data)
   const handlePrint = () => {
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4', putOnlyUsedFonts: true, floatPrecision: 16 });
 
@@ -99,8 +99,8 @@ console.log(data)
     // Remarks and Instructions
     let remark = `Case is coverd ${data.planOfTreatmentSurgical} managment bii will settled as per agreed MOU rate `
     doc.text('Remark:', 10, doc.autoTable.previous.finalY + 10);
-    doc.text(remark,10,260)
-   
+    doc.text(remark, 10, 260)
+
     // doc.text(data.remark, 10, doc.autoTable.previous.finalY + 15);
 
 
@@ -149,7 +149,7 @@ console.log(data)
   SERVICES PVT.LTD.
  JIVIT HEALTHCARE CARD/ Government id card/ Payment Slip Salary Account Cheque (Account Pay)
 `
-  
+
     const note = `Note:
   Convalescence, General Debility, Run Down Condition, Cognitional external disease,sterility STD,
   International self injury, Use of Alcohol/Drugs.
@@ -160,7 +160,7 @@ console.log(data)
   to  my treatment to department is asked for.
   `;
 
-  const ft = ` This document is a copyright of JIVIT HEALTHCARE & MEDICAL SERVICES PVT.LTD.2022 and
+    const ft = ` This document is a copyright of JIVIT HEALTHCARE & MEDICAL SERVICES PVT.LTD.2022 and
  containsInformation that is not to be shared, copied, disclosed or otherwise without the written consent 
  of JIVIT HEALTHCARE & MEDICAL SERVICES PVT.LTD.
  This is a system generated letter.
@@ -173,15 +173,15 @@ console.log(data)
 
     doc.text(ins, 10, 15)
 
-  // Approved by and Signature
-  doc.text('Approved by:', 10, doc.autoTable.previous.finalY + -60);
-  const imgWidth = 40;
-  const imgHeight = 20;
-  doc.addImage(signatureImage, 'PNG', 10, doc.autoTable.previous.finalY + -55, imgWidth, imgHeight, undefined, 'FAST');
-  doc.text('Mr. Mayur Sapkale', 10, doc.autoTable.previous.finalY + -55);
+    // Approved by and Signature
+    doc.text('Approved by:', 10, doc.autoTable.previous.finalY + -60);
+    const imgWidth = 40;
+    const imgHeight = 20;
+    doc.addImage(signatureImage, 'PNG', 10, doc.autoTable.previous.finalY + -55, imgWidth, imgHeight, undefined, 'FAST');
+    doc.text('Mr. Mayur Sapkale', 10, doc.autoTable.previous.finalY + -55);
 
-  doc.text('Signature Of Patient/Employee:', 180, doc.autoTable.previous.finalY + -55, { align: 'right' });
-  doc.text('_________________________', 180, doc.autoTable.previous.finalY + -50, { align: 'right' });
+    doc.text('Signature Of Patient/Employee:', 180, doc.autoTable.previous.finalY + -55, { align: 'right' });
+    doc.text('_________________________', 180, doc.autoTable.previous.finalY + -50, { align: 'right' });
 
     doc.text(note, 10, 140)
     doc.text(ft, 10, 250)
@@ -198,8 +198,8 @@ console.log(data)
         <p className="text-sm">CORPORATE OFFICE:- Plot No.61, Kanchan Nagar Jalgaon</p>
         <h2 className="text-xl font-semibold mt-4">PRE-AUTHORIZATION APPROVAL LETTER</h2>
       </div>
-     
-      <div className="main-content mt-4">
+
+      <div className="main-contentt mt-4">
         <div className="flex justify-between">
           <p>CONTACT US: +91-0257-2355100, +91-9322006810, +91-9665450999</p>
           <p>DATE: {data.date}</p>
@@ -207,7 +207,7 @@ console.log(data)
         <div className="mt-4">
           <p><strong>Authorization Letter:</strong> {data.patientName}</p>
           <p><strong>Hospital Name:</strong> {data.hospital?.hospitalName || 'N/A'}</p>
-        
+
           <p><strong>Employee/Beneficiary Card Number:</strong> {data.healthCardNo}</p>
           {/* <p><strong>Authorization No:</strong> {data.authorizationNo}</p> */}
         </div>
@@ -237,7 +237,7 @@ console.log(data)
               <td className="border border-gray-300 p-2"><strong>Authorized Hospitalization (In Days):</strong></td>
               <td className="border border-gray-300 p-2">{data.expectedLengthOfStay}</td>
             </tr>
-          
+
             <tr>
               <td className="border border-gray-300 p-2"><strong>Room Type:</strong></td>
               <td className="border border-gray-300 p-2">{data.classOfAccommodation}</td>
@@ -252,7 +252,7 @@ console.log(data)
             </tr>
           </tbody>
         </table>
-  <span>Remark: Case is coverd <strong>{data.planOfTreatmentSurgical} </strong> managment bii will settled as per agreed MOU rate</span>
+        <span>Remark: Case is coverd <strong>{data.planOfTreatmentSurgical} </strong> managment bii will settled as per agreed MOU rate</span>
       </div>
       <div className="footer mt-4">
         <p><strong>Approved by:</strong> Mr. Mayur Sapkale</p>
@@ -272,26 +272,26 @@ console.log(data)
 };
 
 export default Approvel;
-  // Sample data object
-  // const data = {
-  //   date: '2024-10-16',
-  //   patientName: 'John Doe',
-  //   hospitalName: 'Health Care Hospital',
-  //   cardNumber: '123456789',
-  //   authorizationNo: '1',
-  //   departmentName: 'Cardiology',
-  //   durationOfAilment: '2 weeks',
-  //   dateOfAdmission: '2024-10-15',
-  //   provisionalDiagnosis: 'Chest Pain',
-  //   authorizedHospitalization: '3 days',
-  //   authorizationLimit: 'Fifty Thousand Only',
-  //   roomType: 'Private Room',
-  //   grAilment: 'Heart Disease',
-  //   grAilmentCode: 'HD001',
-  //   remark: 'Case is approved and Bill will be settled as per agreed MOU rate',
-  //   instructions: [
-  //     'Follow up with the cardiologist.',
-  //     'Adhere to prescribed medication.',
-  //     'Rest and avoid physical exertion.',
-  //   ],
-  // };
+// Sample data object
+// const data = {
+//   date: '2024-10-16',
+//   patientName: 'John Doe',
+//   hospitalName: 'Health Care Hospital',
+//   cardNumber: '123456789',
+//   authorizationNo: '1',
+//   departmentName: 'Cardiology',
+//   durationOfAilment: '2 weeks',
+//   dateOfAdmission: '2024-10-15',
+//   provisionalDiagnosis: 'Chest Pain',
+//   authorizedHospitalization: '3 days',
+//   authorizationLimit: 'Fifty Thousand Only',
+//   roomType: 'Private Room',
+//   grAilment: 'Heart Disease',
+//   grAilmentCode: 'HD001',
+//   remark: 'Case is approved and Bill will be settled as per agreed MOU rate',
+//   instructions: [
+//     'Follow up with the cardiologist.',
+//     'Adhere to prescribed medication.',
+//     'Rest and avoid physical exertion.',
+//   ],
+// };

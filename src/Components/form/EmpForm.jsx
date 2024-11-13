@@ -81,7 +81,7 @@ const EmpForm = () => {
     console.log('Form Data:', formData);
 
     try {
-      const response = await fetch('http://localhost:8080/addBenificiary', {
+      const response = await fetch(`${process.env.REACT_APP_API_KEY}/addBenificiary`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

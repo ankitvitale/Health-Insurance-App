@@ -116,7 +116,7 @@ const HealthList = () => {
         )
       );
 
-      let url = `http://localhost:8080/healthCheckupRejected/${id}`;
+      let url = `${process.env.REACT_APP_API_KEY}/healthCheckupRejected/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

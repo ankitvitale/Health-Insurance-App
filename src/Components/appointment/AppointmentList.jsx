@@ -10,7 +10,7 @@ const AppointmentTable = () => {
             const token = localStorage.getItem('token'); 
 
             try {
-                const response = await fetch('http://localhost:8080/Allappointment', {
+                const response = await fetch(`${process.env.REACT_APP_API_KEY}/Allappointment`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`, 
@@ -32,6 +32,7 @@ const AppointmentTable = () => {
         fetchAppointments();
     }, []); 
 
+console.log(process.env.REACT_APP_API_KEY)
     const token = localStorage.getItem('token');
 
     const updateStatus = async (id, status) => {
@@ -42,7 +43,7 @@ const AppointmentTable = () => {
                 )
             );
 
-            let url = `http://localhost:8080/AppoinmentStatusAuthorized/${id}`;
+            let url = `${process.env.REACT_APP_API_KEY}/AppoinmentStatusAuthorized/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

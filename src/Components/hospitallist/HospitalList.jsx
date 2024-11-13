@@ -31,7 +31,7 @@ const HospitalDetailModal = ({ hospital, onClose }) => {
         </div>
     );
 };
-
+ 
 function HospitalList() {
     const [data, setData] = useState([]);
     const [selectedHospital, setSelectedHospital] = useState(null); // State for the selected hospital
@@ -40,7 +40,7 @@ function HospitalList() {
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = 'http://localhost:8080/hospitals';
+                let url = `${process.env.REACT_APP_API_KEY}/hospitals`;
                 
                 let response = await fetch(url, {
                     method: 'GET',

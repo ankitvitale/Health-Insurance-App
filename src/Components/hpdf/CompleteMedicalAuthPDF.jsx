@@ -257,7 +257,7 @@ const CompleteMedicalAuthPDF = () => {
   useEffect(() => {
     async function getData() {
       try {
-        let url = `http://localhost:8080/cleamRequest/${id}`;
+        let url = `${process.env.REACT_APP_API_KEY}/cleamRequest/${id}`;
         let response = await fetch(url, {
           method: 'GET',
           headers: {

@@ -32,7 +32,7 @@ const HospitalHome = () => {
     }
 
     try {
-      const response = await fetch('http://localhost:8080/tecketRaise', {
+      const response = await fetch(`${process.env.REACT_APP_API_KEY}/tecketRaise`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

@@ -376,7 +376,7 @@ const HclaimList = () => {
             }
 
             try {
-                let url = 'http://localhost:8080/hospitalCleamRequests';
+                let url = `${process.env.REACT_APP_API_KEY}/hospitalCleamRequests`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

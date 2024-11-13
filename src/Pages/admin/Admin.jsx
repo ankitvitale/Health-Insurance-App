@@ -13,6 +13,7 @@ function Admin() {
     const isDropdownOpen = () => {
         setIsDropdownOpen(!DropdownOpen);
     };
+    
     const handleLogout = () => {
         localStorage.removeItem('token');
         window.location.href = '/login';

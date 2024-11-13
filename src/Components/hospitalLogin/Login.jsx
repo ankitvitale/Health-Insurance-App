@@ -25,7 +25,7 @@ const navigate = useNavigate()
     setMessage('');
 
     try {
-      const response = await axios.post('http://localhost:8080/send-otp', null, {
+      const response = await axios.post(`${process.env.REACT_APP_API_KEY}/send-otp`, null, {
         params: { email: email },
       });
       setMessage(response.data);  
@@ -48,7 +48,7 @@ const navigate = useNavigate()
     setMessage('');
 
     try {
-      const response = await axios.post('http://localhost:8080/validate-otp', null, {
+      const response = await axios.post(`${process.env.REACT_APP_API_KEY}/validate-otp`, null, {
         params: { email: email, otp: otp },
       });
       setMessage(`Success! Token: ${response.data.jwtToken}`); 

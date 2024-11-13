@@ -13,7 +13,7 @@ function CheckupList() {
             }
             
             try {
-                let url = 'http://localhost:8080/hospitalHeathCheckupList';
+                let url = `${process.env.REACT_APP_API_KEY}/hospitalHeathCheckupList`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

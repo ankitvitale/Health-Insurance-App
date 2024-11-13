@@ -16,7 +16,7 @@ function Card() {
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `http://localhost:8080/benificiaries/${params.id}`;
+                let url = `${process.env.REACT_APP_API_KEY}/benificiaries/${params.id}`;
 
                 let response = await fetch(url, {
                     method: 'GET',

@@ -26,7 +26,7 @@ const HospitalPay = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch('http://localhost:8080/AllhospitalsList');
+        const response = await fetch(`${process.env.REACT_APP_API_KEY}/AllhospitalsList`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }

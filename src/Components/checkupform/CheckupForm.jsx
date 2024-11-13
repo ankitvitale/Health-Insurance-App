@@ -31,7 +31,7 @@ const HealthCheckupForm = () => {
 
     try {
       const response = await fetch(
-        "http://localhost:8080/healthCheckupReqest", 
+        `${process.env.REACT_APP_API_KEY}:8080/healthCheckupReqest`, 
         {
           method: "POST",
           headers: {
