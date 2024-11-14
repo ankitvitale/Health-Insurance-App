@@ -30,7 +30,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import Footer from '../../Components/footer/Footer';
 import ScrollToTop from '../../Scroll';
-
+import { apiUrl } from '../../Components/shared';
 function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({
@@ -56,7 +56,7 @@ function Home() {
             console.log('Form submitted:', formData);
             
             // Make a POST request using fetch
-            const response = await fetch(`${process.env.REACT_APP_API_KEY}/appointment`, {
+            const response = await fetch(`http://82.112.237.134:8080/appointment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

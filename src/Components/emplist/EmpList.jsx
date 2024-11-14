@@ -11,7 +11,7 @@ function App() {
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `${process.env.REACT_APP_API_KEY}/benificiaries`;
+                let url = `http://82.112.237.134:8080/benificiaries`;
 
                 let response = await fetch(url, {
                     method: 'GET',

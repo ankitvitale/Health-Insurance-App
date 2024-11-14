@@ -14,7 +14,7 @@ const Approvel = () => {
   useEffect(() => {
     async function getData() {
       try {
-        let url = `${process.env.REACT_APP_API_KEY}/cleamRequest/${id}`;
+        let url = `http://82.112.237.134:8080/cleamRequest/${id}`;
         let response = await fetch(url, {
           method: 'GET',
           headers: {

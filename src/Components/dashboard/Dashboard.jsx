@@ -17,7 +17,7 @@ function Dashboard() {
     const fetchCleamRequests = async () => {
       const token = localStorage.getItem('token');
       try {
-        let response = await fetch(`${process.env.REACT_APP_API_KEY}/adminHeathCheckupList`, {
+        let response = await fetch(`http://82.112.237.134:8080/adminHeathCheckupList`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -50,7 +50,7 @@ function Dashboard() {
     async function getData() {
         const token = localStorage.getItem('token');
         try {
-            let url = `${process.env.REACT_APP_API_KEY}/benificiaries`;
+            let url = `http://82.112.237.134:8080/benificiaries`;
 
             let response = await fetch(url, {
                 method: 'GET',

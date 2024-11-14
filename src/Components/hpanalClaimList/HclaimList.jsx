@@ -292,7 +292,7 @@ const DischargeModal = ({ claimId, onClose }) => {
         formData.append('dischargecard', dischargeCard);
 
         try {
-            const response = await fetch(`${process.env.REACT_APP_API_KEY}/updateCleamRequest/${claimId}`, {
+            const response = await fetch(`http://82.112.237.134:8080/updateCleamRequest/${claimId}`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -375,7 +375,7 @@ const HclaimList = () => {
             }
 
             try {
-                let url = `${process.env.REACT_APP_API_KEY}/hospitalCleamRequests`;
+                let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

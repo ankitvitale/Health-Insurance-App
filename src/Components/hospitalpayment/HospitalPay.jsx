@@ -26,7 +26,7 @@ const HospitalPay = () => {
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(`${process.env.REACT_APP_API_KEY}/AllhospitalsList`);
+        const response = await fetch(`http://82.112.237.134:8080/AllhospitalsList`);
         if (!response.ok) {
           throw new Error(`HTTP error! status: ${response.status}`);
         }
@@ -83,7 +83,7 @@ const HospitalPay = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await fetch(`${process.env.REACT_APP_API_KEY}/addHospitalPayment`, {
+      const response = await fetch(`http://82.112.237.134:8080/addHospitalPayment`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

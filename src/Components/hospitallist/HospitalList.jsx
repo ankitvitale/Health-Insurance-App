@@ -40,7 +40,7 @@ function HospitalList() {
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `${process.env.REACT_APP_API_KEY}/hospitals`;
+                let url = `http://82.112.237.134:8080/hospitals`;
                 
                 let response = await fetch(url, {
                     method: 'GET',

@@ -31,7 +31,7 @@ function EditBeneficiary() {
     useEffect(() => {
         async function fetchBeneficiary() {
             try {
-                let url = `${process.env.REACT_APP_API_KEY}/benificiaries/${id}`;
+                let url = `http://82.112.237.134:8080/benificiaries/${id}`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {
@@ -94,7 +94,7 @@ function EditBeneficiary() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            let url = `${process.env.REACT_APP_API_KEY}/updateBenificiary/${id}`;
+            let url = `http://82.112.237.134:8080/updateBenificiary/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

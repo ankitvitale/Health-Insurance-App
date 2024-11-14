@@ -73,7 +73,7 @@ const CleamRequestList = () => {
   useEffect(() => {
     const fetchCleamRequests = async () => {
       try {
-        let response = await fetch(`${process.env.REACT_APP_API_KEY}/adminCleamRequests`, {
+        let response = await fetch(`http://82.112.237.134:8080/adminCleamRequests`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -98,7 +98,7 @@ const CleamRequestList = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      let url = `${process.env.REACT_APP_API_KEY}/updateStatusAuthorized/${id}`;
+      let url = `http://82.112.237.134:8080/updateStatusAuthorized/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -125,7 +125,7 @@ const CleamRequestList = () => {
 
   const updateStatusreject = async (id, status) => {
     try {
-      let url = `${process.env.REACT_APP_API_KEY}/updateStatusRejected/${id}`;
+      let url = `http://82.112.237.134:8080/updateStatusRejected/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

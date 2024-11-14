@@ -22,7 +22,7 @@ const HospitalComponent = () => {
     remark: ''
   });
 
-  let url = `${process.env.REACT_APP_API_KEY}/addHospital`
+  let url = `http://82.112.237.134:8080/addHospital`
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +37,7 @@ const HospitalComponent = () => {
     e.preventDefault();
     
     try { 
-      const response = await fetch(`${process.env.REACT_APP_API_KEY}/addHospital`, {
+      const response = await fetch(`http://82.112.237.134:8080/addHospital`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

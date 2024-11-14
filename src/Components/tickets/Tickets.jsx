@@ -7,7 +7,7 @@ function Tickets() {
     useEffect(() => {
         async function getData() {
             try { 
-                let url = `${process.env.REACT_APP_API_KEY}/RaiseTicketInfo`;
+                let url = `http://82.112.237.134:8080/RaiseTicketInfo`;
                 
                 let response = await fetch(url, {
                     method: 'GET', 

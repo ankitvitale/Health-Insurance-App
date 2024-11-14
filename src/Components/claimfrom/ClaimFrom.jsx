@@ -99,7 +99,7 @@ const ClaimRequestForm = () => {
       const token = localStorage.getItem("jwtToken");
       console.log(token)
       const response = await fetch(
-        `${process.env.REACT_APP_API_KEY}/createCleamRequest`,
+        `http://82.112.237.134:8080/createCleamRequest`,
         {
           method: "POST",
           headers: {
