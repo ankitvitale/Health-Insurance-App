@@ -13,7 +13,9 @@ function CheckupList() {
             }
             
             try {
-                let url = `http://82.112.237.134:8080/hospitalHeathCheckupList`;
+                 let url = `http://82.112.237.134:8080/hospitalHeathCheckupList`;
+             //   let url = `http://localhost:8080/hospitalHeathCheckupList`;
+
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

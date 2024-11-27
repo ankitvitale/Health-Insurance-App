@@ -31,7 +31,9 @@ const HealthCheckupForm = () => {
 
     try {
       const response = await fetch(
-        `http://82.112.237.134:8080/healthCheckupReqest`,
+         `http://82.112.237.134:8080/healthCheckupReqest`,
+        //`http://localhost:8080/healthCheckupReqest`,
+
         {
           method: "POST",
           headers: {
@@ -40,7 +42,7 @@ const HealthCheckupForm = () => {
           body: formData,
         }
       );
-      console.log(formData)
+      alert("Add Checkup form  Succsesfuly..")
       resetForm()
       if (!response.ok) {
         throw new Error("Network response was not ok");

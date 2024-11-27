@@ -248,6 +248,7 @@ const EmpForm = () => {
                     required
                   >
                     <option value="">Select Relation</option>
+                    <option value="Husband">Husband</option>
                     <option value="Wife">Wife</option>
                     <option value="Son">Son</option>
                     <option value="Daughter">Daughter</option>

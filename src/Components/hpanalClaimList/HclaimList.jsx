@@ -363,7 +363,7 @@ const HclaimList = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedClaim, setSelectedClaim] = useState(null);
-    const [dischargeClaimId, setDischargeClaimId] = useState(null);
+    const [dischargeClaimId, setDischargeClaimId] = useState(null); 
     const navigate = useNavigate();
     const token = localStorage.getItem('jwtToken');
 
@@ -375,7 +375,9 @@ const HclaimList = () => {
             }
 
             try {
-                let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
+                 let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
+                //let url = `http://localhost:8080/hospitalCleamRequests`;
+
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {
