@@ -50,14 +50,15 @@ font-size: 14px;
   font-size: 17px;
 }
 .card1{
-position: absolute;
-top: 49.5%;
-left: 50.5%;
-text-align: left;
-display: flex;
-flex-direction: column;
-gap: 16px;
-font-family: 'Lato';
+  position: absolute;
+  top: 49.3%;
+  left: 50.5%;
+  text-align: left;
+  display: flex
+;
+  flex-direction: column;
+  gap: 14.3px;
+  font-family: 'Lato';
 }
 .table{
 position: absolute;
