@@ -6,7 +6,11 @@ function App() {
     const [data, setData] = useState([]); 
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState(''); 
+    const [currentPage, setCurrentPage] = useState(1);
+    const itemsPerPage = 10; 
+
     const navigate = useNavigate();
+
     useEffect(() => {
         async function getData() {
             const token = localStorage.getItem('token');
@@ -40,8 +44,6 @@ function App() {
         navigate(`editemp/${id}`);
     };
 
-  
-
     const cardId = (id) => {
         navigate(`card/${id}`);
     };
@@ -56,7 +58,14 @@ function App() {
             item.departmentName.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredData(filtered);
+        setCurrentPage(1); // Reset to the first page after a search
     };
+
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    const currentItems = filteredData.slice(indexOfFirstItem, indexOfLastItem);
+
+    const paginate = (pageNumber) => setCurrentPage(pageNumber);
 
     return (
         <>
@@ -67,40 +76,57 @@ function App() {
                 onChange={handleSearch}
             />
 
-
             <div className="container">
                 <div className="table-container">
                     <table>
-                        <tr>
-                            <th>CardNo</th>
-                            <th>Full Name</th>
-                            <th>Phone Number</th>
-                            <th>Date of Joining</th>
-                            <th>Date of Retirement</th>
-                            <th>Aadhar No</th>
-                            <th>Department Name</th>
-                            <th>Department Location</th>
-                            <th>Action</th>
-                            <th>Create card</th>
-                        </tr>
-                        {filteredData.map((item, index) => (
-                            <tr key={index}>
-                                <td>{item.cardNo}</td>
-                                <td>{item.fullName}</td>
-                                <td>{item.phoneNumber}</td>
-                                <td>{new Date(item.dateOfJoining).toLocaleDateString()}</td>
-                                <td>{new Date(item.dateOfRetirement).toLocaleDateString()}</td>
-                                <td>{item.aadharNo}</td>
-                                <td>{item.departmentName}</td>
-                                <td>{item.departmentLocation}</td>
-                                <td>
-                                     <button className='td' onClick={() => updateStatus(item.id)}>Edit</button></td>
-                                <td>
-                                    <button className='td' onClick={() => cardId(item.id)}>Show Card</button>
-                                </td>
+                        <thead>
+                            <tr>
+                                <th>CardNo</th>
+                                <th>Full Name</th>
+                                <th>Phone Number</th>
+                                <th>Date of Joining</th>
+                                <th>Date of Retirement</th>
+                                <th>Aadhar No</th>
+                                <th>Department Name</th>
+                                <th>Department Location</th>
+                                <th>Action</th>
+                                <th>Create card</th>
                             </tr>
-                        ))}
+                        </thead>
+                        <tbody>
+                            {currentItems.map((item, index) => (
+                                <tr key={index}>
+                                    <td>{item.cardNo}</td>
+                                    <td>{item.fullName}</td>
+                                    <td>{item.phoneNumber}</td>
+                                    <td>{new Date(item.dateOfJoining).toLocaleDateString()}</td>
+                                    <td>{new Date(item.dateOfRetirement).toLocaleDateString()}</td>
+                                    <td>{item.aadharNo}</td>
+                                    <td>{item.departmentName}</td>
+                                    <td>{item.departmentLocation}</td>
+                                    <td>
+                                         <button className='td' onClick={() => updateStatus(item.id)}>Edit</button>
+                                    </td>
+                                    <td>
+                                        <button className='td' onClick={() => cardId(item.id)}>Show Card</button>
+                                    </td>
+                                </tr>
+                            ))}
+                        </tbody>
                     </table>
+
+                    {/* Pagination */}
+                    <div className="pagination">
+                        {Array.from({ length: Math.ceil(filteredData.length / itemsPerPage) }, (_, index) => (
+                            <button
+                                key={index + 1}
+                                onClick={() => paginate(index + 1)}
+                                className={currentPage === index + 1 ? 'active' : ''}
+                            >
+                                {index + 1}
+                            </button>
+                        ))}
+                    </div>
                 </div>
             </div>
         </>

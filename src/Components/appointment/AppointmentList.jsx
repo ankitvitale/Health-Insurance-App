@@ -103,7 +103,8 @@ console.log(process.env.REACT_APP_API_KEY)
 
     return (
         <div>
-            <h2>Appointment List</h2>
+            <h2>Appointment List</h2> 
+            <div className="table-container">
             <table border="1" style={{ width: '100%', textAlign: 'left' }}>
                 <thead>
                     <tr>
@@ -159,6 +160,7 @@ console.log(process.env.REACT_APP_API_KEY)
                     )}
                 </tbody>
             </table>
+        </div>
         </div>
     );
 };

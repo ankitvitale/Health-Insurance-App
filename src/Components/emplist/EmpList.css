@@ -9,7 +9,11 @@
     align-items: flex-start;
 }
 .table-container{
-    width: 100%;
+    max-height: 500px; /* Adjust height as needed */
+    overflow-y: auto; /* Adds vertical scrolling */
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
 }
 h1 {
     text-align: center;
@@ -51,6 +55,33 @@ tr:nth-child(even) {
     margin-top: 0;
     margin: 5px;
 }
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: 1px solid #007bff;
+    background-color: #fff;
+    color: #007bff;
+    cursor: pointer;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.pagination button.active {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+    color: #fff;
+}
+
 
 @media (max-width: 768px) {
     th, td {
@@ -92,7 +123,7 @@ tr:nth-child(even) {
         text-align: left;
         font-weight: bold;
     }
-
+ 
     .table-container {
         overflow-x: auto;
     }

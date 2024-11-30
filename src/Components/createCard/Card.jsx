@@ -65,7 +65,7 @@ function Card() {
             const yPos = (pdfHeight - newHeight) / 2;
 
 
-            pdf.addImage(imgData, 'PNG', -5, -25, 220, newHeight);
+            pdf.addImage(imgData, 'PNG', 5, -25, 200, newHeight);
             pdf.save(`${data.fullName}.pdf`);
         });
     };
@@ -90,13 +90,16 @@ function Card() {
                     <p className='dob'>  {data.departmentLocation}</p>
                     <p className='dob'> {data.designation}</p>
                 </div>
+                <div className="cardspan">DOR</div>
+                <div className="cardspan1">DOI</div>
                 <div className="card1">
                     <p className='dob'>  {data.gender || "Male"}</p>
                     <p className='dob'>  {doi.toLocaleDateString()}</p>
                     <p className='dob'> {dor.toLocaleDateString()}</p>
                 </div>
+                <div className="line"></div>
                 <div className="table">
-                    <table>
+                    <table> 
                         <thead className='thead'>
                             <tr className='ttr'>
                                 <th>Name</th>

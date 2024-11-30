@@ -2,30 +2,30 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  /* flex-direction: column; */
   height: 100vh;
   gap: 5px;
 }
-/* img{
-  width: 550px;
-} */
-/* .hh{
+.line{
+  height: 350px;
+  background-color: #fff;
+  width: 20px;
   position: absolute;
-  top: 17.5%;
-  left: 46%;
-} */
+  margin-left: 5px;
+  margin-top: -10px;
+}
 .card{
 position: absolute;
-top: 41%;
+top: 40.5%;
 left: 29.5%;
 text-align: left;
 display: flex;
 flex-direction: column;
-gap: 11px;
+line-height: 28.5px;
 font-family: 'Lato';
 }
-
-/*  */
+.card .hh{
+  margin-top: -2.5px;
+}
 
 .card h3{
 color: #ff1a31;
@@ -39,11 +39,11 @@ font-weight: 700;
 }
 .card p{
   font-weight: 700;
-font-size: 14px;
+font-size: 17px;
 }
 .card1 p{
   font-weight: 700;
-font-size: 14px;
+font-size: 17px;
 }
 .card1 h4{
   font-weight: 500;
@@ -51,22 +51,26 @@ font-size: 14px;
 }
 .card1{
   position: absolute;
-  top: 49.3%;
+  top: 49%;
   left: 50.5%;
   text-align: left;
-  display: flex
-;
+  display: flex;
   flex-direction: column;
-  gap: 14.3px;
+  gap: 10px;
   font-family: 'Lato';
 }
+/* .hh {
+  max-width: 230px; 
+  white-space: nowrap;
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+} */
 .table{
 position: absolute;
 top: 61.8%;
 left: 59.7%;
 font-family: 'Lato';
 width: 570px;
-/* background-color: #b5b5b5; */
 height: 170px;
 }
 
@@ -74,18 +78,42 @@ height: 170px;
   border: 1px solid black;
 
 }
+.cardspan{
+  height: 22px;
+  width: 43px;
+  background-color: #f2f7fb;
+  position: absolute;
+  left: 45.2%;
+  top: 58%;
+  font-weight: 900;
+  font-family: 'Lato';
+  letter-spacing: 1px;
+
+}
+.cardspan1{
+  height: 22px;
+  width: 43px;
+  background-color: #f2f7fb;
+  position: absolute;
+  left: 45%;
+  top: 53.5%;
+  font-weight: 900;
+  font-family: 'Lato';
+  letter-spacing: 1px;
+
+}
 .ttr th{
 background-color: transparent;
-border: 1px solid #b5b5b5;
+border: 1px solid #323232;
 color: black;
 padding: 0;  
 }
 .ttr td{
 background-color: transparent;
-border: 1px solid #b5b5b5;
+border: 1px solid #323232;
 color: black;
 padding: 0;  
-font-size: 13px;
+font-size: 15px;
 }
 tr:nth-child(even) {
   background-color:transparent;
@@ -122,7 +150,7 @@ tr:nth-child(even) {
   color: red;
 }
   .img, .img * {
-    visibility: visible; /* Make only the images visible */
+    visibility: visible;  
   }
 
   .img {
@@ -133,6 +161,6 @@ tr:nth-child(even) {
   }
 
   .print-btn {
-    display: none; /* Hide the print button during printing */
+    display: none; 
   }
 }

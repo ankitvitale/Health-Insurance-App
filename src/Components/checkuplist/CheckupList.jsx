@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react';
+
 function CheckupList() {
     const [data, setData] = useState([]); 
     const [filteredData, setFilteredData] = useState([]); 
     const [searchTerm, setSearchTerm] = useState(''); 
+    const [currentPage, setCurrentPage] = useState(1); 
+    const rowsPerPage = 10; 
     const token = localStorage.getItem('jwtToken');
 
     useEffect(() => {
@@ -11,11 +14,9 @@ function CheckupList() {
                 console.error("Token is missing, invalid, or malformed.");
                 return; 
             }
-            
-            try {
-                 let url = `http://82.112.237.134:8080/hospitalHeathCheckupList`;
-             //   let url = `http://localhost:8080/hospitalHeathCheckupList`;
 
+            try {
+                let url = `http://82.112.237.134:8080/hospitalHeathCheckupList`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {
@@ -23,11 +24,11 @@ function CheckupList() {
                         'Content-Type': 'application/json',
                     },
                 });
-    
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
+
                 let emp = await response.json();
                 setData(emp);
                 setFilteredData(emp); 
@@ -36,7 +37,7 @@ function CheckupList() {
                 console.error('Error fetching data:', error);
             }
         }
-        
+
         getData();
     }, [token]);
 
@@ -56,23 +57,32 @@ function CheckupList() {
             item.hospital.toLowerCase().includes(value.toLowerCase())
         );
         setFilteredData(filtered);
+        setCurrentPage(1); // Reset to the first page on search
+    };
+
+    const indexOfLastRow = currentPage * rowsPerPage;
+    const indexOfFirstRow = indexOfLastRow - rowsPerPage;
+    const currentRows = filteredData.slice(indexOfFirstRow, indexOfLastRow);
+
+    const totalPages = Math.ceil(filteredData.length / rowsPerPage);
+
+    const handlePageChange = (pageNumber) => {
+        setCurrentPage(pageNumber);
     };
 
     return (
         <>
-            <input style={{width:'25%',marginLeft:'20px'}}
-                    type="text"
-                    placeholder="Search by CardNo, Full Name, Pesent Name, or Hospital"
-                    value={searchTerm}
-                    onChange={handleSearch}
-                />
+            <input
+                style={{ width: '25%', marginLeft: '20px' }}
+                type="text"
+                placeholder="Search by CardNo, Full Name, Pesent Name, or Hospital"
+                value={searchTerm}
+                onChange={handleSearch}
+            />
             <div className="container">
-                
-           
-             
-
                 <div className="table-container">
                     <table>
+                        <thead>
                             <tr>
                                 <th>Sr.No</th>
                                 <th>CardNo</th>
@@ -83,7 +93,9 @@ function CheckupList() {
                                 <th>Department Name</th>
                                 <th>Department Location</th>
                             </tr>
-                            {filteredData.map((item, index) => (
+                        </thead>
+                        <tbody>
+                            {currentRows.map((item, index) => (
                                 <tr key={index}>
                                     <td>{item.id}</td>
                                     <td>{item.cardNo}</td>
@@ -93,10 +105,23 @@ function CheckupList() {
                                     <td>{item.location}</td>
                                     <td>{item.depermentName}</td>
                                     <td>{item.status}</td>
-                                   
                                 </tr>
                             ))}
+                        </tbody>
                     </table>
+                </div>
+
+                {/* Pagination Controls */}
+                <div className="pagination">
+                    {Array.from({ length: totalPages }, (_, index) => (
+                        <button
+                            key={index}
+                            onClick={() => handlePageChange(index + 1)}
+                            className={currentPage === index + 1 ? 'active' : ''}
+                        >
+                            {index + 1}
+                        </button>
+                    ))}
                 </div>
             </div>
         </>
