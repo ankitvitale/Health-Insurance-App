@@ -121,14 +121,16 @@ height: 170px;
 background-color: transparent;
 border: 1px solid #323232;
 color: black;
-padding: 5px;
+padding: 0;
+padding-left: 9px;
 }
 .ttr td{
 background-color: transparent;
 border: 1px solid #323232;
 color: black;
-padding: 5px;  
-font-size: 15px;
+padding: 0;
+padding-left: 9px; 
+font-size: 13px;
 }
 tr:nth-child(even) {
   background-color:transparent;

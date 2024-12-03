@@ -89,7 +89,7 @@ function Card() {
                     <p className='dob'> {data.departmentName}</p>
                     <p className='dob'>  {data.departmentLocation}</p>
                     <p className='dob'> {data.designation}</p>
-                </div> 
+                </div>
                 <div className="cardspan">DOR</div>
                 <div className="cardspan1">DOI</div>
                 <div className="card1">
@@ -100,19 +100,21 @@ function Card() {
                 <div className="line"></div>
                 <div className="line2">Government</div>
                 <div className="table">
-                    <table> 
+                    <table>
                         <thead className='thead'>
                             <tr className='ttr'>
+                                <th>Sr.No</th>
                                 <th>Name</th>
                                 <th>Gender</th>
                                 <th>Age</th>
                                 <th>Relation</th></tr>
 
                         </thead>
-                        <tbody> 
+                        <tbody>
                             {
-                                family.map((e) => (
-                                    <tr className='ttr'>
+                                family.map((e, i) => (
+                                    <tr className='ttr' key={i}>
+                                        <td>{i + 1}</td>
                                         <td>{e.name}</td>
                                         <td>{e.gender}</td>
                                         <td>{e.age}</td>
