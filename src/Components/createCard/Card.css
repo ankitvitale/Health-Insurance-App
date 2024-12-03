@@ -13,6 +13,18 @@
   margin-left: 5px;
   margin-top: -10px;
 }
+.line2{
+  height: 12px;
+  background-color: #cbffff;
+  width: 100px;
+  position: absolute;
+  margin-left: 140px;
+  margin-top: -183px;
+  font-family: sans-serif;
+  color:#0b0b0b;
+  font-weight: 500;
+  font-size: 14px;
+}
 .card{
 position: absolute;
 top: 40.5%;
@@ -25,6 +37,9 @@ font-family: 'Lato';
 }
 .card .hh{
   margin-top: -2.5px;
+}
+.card .h3{
+  margin-top: -1.3px;
 }
 
 .card h3{
@@ -106,13 +121,13 @@ height: 170px;
 background-color: transparent;
 border: 1px solid #323232;
 color: black;
-padding: 0;  
+padding: 5px;
 }
 .ttr td{
 background-color: transparent;
 border: 1px solid #323232;
 color: black;
-padding: 0;  
+padding: 5px;  
 font-size: 15px;
 }
 tr:nth-child(even) {

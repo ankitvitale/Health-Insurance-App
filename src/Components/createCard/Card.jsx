@@ -83,13 +83,13 @@ function Card() {
                 <img src={JMS} alt="JMS Card" />
 
                 <div className="card">
-                    <h3 className=''> {data.cardNo}</h3>
+                    <h3 className='h3'> {data.cardNo}</h3>
                     <p className='hh'> {data.fullName}</p>
                     <p className='dob'>  {dob.toLocaleDateString()}</p>
                     <p className='dob'> {data.departmentName}</p>
                     <p className='dob'>  {data.departmentLocation}</p>
                     <p className='dob'> {data.designation}</p>
-                </div>
+                </div> 
                 <div className="cardspan">DOR</div>
                 <div className="cardspan1">DOI</div>
                 <div className="card1">
@@ -98,6 +98,7 @@ function Card() {
                     <p className='dob'> {dor.toLocaleDateString()}</p>
                 </div>
                 <div className="line"></div>
+                <div className="line2">Government</div>
                 <div className="table">
                     <table> 
                         <thead className='thead'>

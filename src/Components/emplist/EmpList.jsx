@@ -10,13 +10,14 @@ function App() {
     const itemsPerPage = 10; 
 
     const navigate = useNavigate();
-
+    const token = localStorage.getItem('token');
     useEffect(() => {
         async function getData() {
-            const token = localStorage.getItem('token');
+          
             try {
                 let url = `http://82.112.237.134:8080/benificiaries`;
-
+                // let url = `http://localhost:8080/benificiaries`;
+    
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {
@@ -24,26 +25,53 @@ function App() {
                         'Content-Type': 'application/json',
                     },
                 });
-
+    
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-
+    
                 let emp = await response.json();
+    
+                // Sort by id in descending order to display the newest entry first
+                emp.sort((a, b) => b.id - a.id); // Replace `id` with your unique identifier
+    
                 setData(emp);
                 setFilteredData(emp); 
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
         }
-
+    
         getData();
     }, []);
-
+    
     const updateStatus = async (id) => {
         navigate(`editemp/${id}`);
     };
+    const deleteData = async (id) => {
+        try {
+            // const url = `http://localhost:8080/deleteBeneficiary/${id}`;
+            const url = `http://82.112.237.134:8080/deleteBeneficiary/${id}`;
 
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+    
+            // Check if the response is successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+    
+            console.log('Beneficiary deleted successfully');
+            navigate('/admin/emplist');
+        } catch (error) {
+            console.error('Error deleting beneficiary:', error);
+        }
+    };
     const cardId = (id) => {
         navigate(`card/${id}`);
     };
@@ -106,6 +134,7 @@ function App() {
                                     <td>{item.departmentLocation}</td>
                                     <td>
                                          <button className='td' onClick={() => updateStatus(item.id)}>Edit</button>
+                                         <button className='td' onClick={() => deleteData(item.id)}>Delete</button>
                                     </td>
                                     <td>
                                         <button className='td' onClick={() => cardId(item.id)}>Show Card</button>
