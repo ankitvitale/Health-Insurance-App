@@ -9,7 +9,7 @@ function AllHospitalList() {
     useEffect(() => {
         async function getData() {
             try {
-                let url = `http://82.112.237.134:8080/AllhospitalsList`;
+                let url = `http://localhost:443/api/AllhospitalsList`;
 
                 let response = await fetch(url, {
                     method: 'GET',
