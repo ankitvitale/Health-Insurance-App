@@ -9,7 +9,7 @@ function AllHospitalList() {
     useEffect(() => {
         async function getData() {
             try {
-                let url = `http://localhost:443/api/AllhospitalsList`;
+                let url = `https://jivithealthcare.in/api/AllhospitalsList`;
 
                 let response = await fetch(url, {
                     method: 'GET',
