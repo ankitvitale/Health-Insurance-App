@@ -1,3 +1,4 @@
+
 .main-wrapper {
   background-image: url(../../Assets/home\ design.svg);
   height: 700px;
@@ -441,6 +442,17 @@ p {
   .main-wrapper {
     background-position: center;
   }
+  .main-content{
+    margin-left: 94px;
+  }
+  .main-content h1{
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    width: 350px;
+    text-align: left;
+    color: #3a6dc9;
+  }
   .missions {
     justify-content: center;
     gap: 25px;
@@ -474,5 +486,162 @@ p {
   .customer {
     height: 151px;
     width: 60%;
+  }
+  .footer{
+    height: auto;
+  }
+}
+@media screen and (min-width: 768px) and (max-width: 1600px) {
+  .main-wrapper {
+    background-position: center;
+  }
+  .main-content{
+    margin-left: 94px;
+  }
+  .main-content h1{
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 46px;
+    width: 350px;
+    text-align: left;
+    color: #3a6dc9;
+  }
+  .missions {
+    justify-content: center;
+    gap: 25px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .mission {
+    width: 170px;
+    height: 150px;
+  }
+  .mission img {
+    width: 30px;
+  }
+  .mission h6,
+  .customer-info h6 {
+    font-size: 10px;
+  }
+  .mission p {
+    font-size: 10px;
+  }
+  .insrance-content h3 {
+    font-size: 21px;
+  }
+  .insurance-img img {
+    width: 220px;
+  }
+  .benifit-boxes {
+    height: auto;
+    gap: 18px;
+  }
+  .customer {
+    height: 151px;
+    width: 60%;
+  }
+  .footer{
+    height: auto;
+  }
+}
+
+@media screen and (min-width: 1600px) and (max-width: 2560px) {
+  .main-wrapper {
+    background-position: center;
+    height: 1040px;
+  }
+  
+  .main-content{
+    margin-left: 454px;
+    margin-top: 220px;
+    align-items: flex-start;
+  }
+  .main-content h1{
+    font-family: "Lato", sans-serif;
+    font-weight: 700;
+    font-size: 56px;
+    width: auto;
+    text-align: left;
+    color: #3a6dc9;
+  }
+  .main-content p{
+    font-size: 21px;
+  }
+  .main-content button{
+    width: 300px;
+    height: 60px;
+    font-size: 24px;
+  }
+  .benifit-content{
+    height: 93px;
+  }
+  .benifit-content img {
+    width: 89px;
+}
+  .benifit-content h2 {
+    font-size: 22px;
+}
+.box{
+  height: 200px;
+  width: 200px;
+}
+.box p{
+  font-size: 18px;
+}
+.service{
+  height: 115px;
+}
+.service h5{
+  font-size: 24px;
+}
+.service p{
+  font-size: 18px;
+}
+.about p{
+  font-size: 18px;
+}
+  .missions {
+    justify-content: space-evenly;
+    gap: 35px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+  }
+  .mission {
+    width: 280px;
+    height: 210px;
+}
+  .mission img {
+    width: 30px;
+  }
+  .mission h6,
+  .customer-info h6 {
+    font-size: 24px;
+  }
+  .mission p {
+    font-size: 18px;
+  }
+
+  .customer-info p{
+    font-size: 18px;
+  }
+  p{
+    font-size: 18px;
+  }
+  .insrance-content h3 {
+    font-size: 38px;
+  }
+  .insurance-img img {
+    width: 280px;
+  }
+  .benifit-boxes {
+    height: auto;
+    gap: 18px;
+  }
+  .customer {
+    height: 151px;
+    width: 60%;
+  }
+  .footer{
+    height: auto;
   }
 }

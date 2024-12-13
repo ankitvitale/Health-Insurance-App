@@ -1,25 +1,27 @@
-import React, { useEffect, useState } from 'react';
-import { apiUrl } from '../shared';
+import React, { useEffect, useState, useRef } from 'react';
+import { jsPDF } from 'jspdf';
+import html2canvas from 'html2canvas';
 
 function AllHospitalList() {
     const [data, setData] = useState([]);
+    const tableRef = useRef(); // Reference to the table for generating PDF
 
     useEffect(() => {
         async function getData() {
-            try { 
+            try {
                 let url = `http://82.112.237.134:8080/AllhospitalsList`;
-                
+
                 let response = await fetch(url, {
-                    method: 'GET', 
+                    method: 'GET',
                     headers: {
                         'Content-Type': 'application/json',
                     },
                 });
-        
+
                 if (!response.ok) {
                     throw new Error(`HTTP error! status: ${response.status}`);
                 }
-                
+
                 let emp = await response.json();
                 setData(emp);
                 console.log(emp);
@@ -27,41 +29,37 @@ function AllHospitalList() {
                 console.error('Error fetching data:', error);
             }
         }
-        
+
         getData();
     }, []);
 
-    console.log(data);
+    // Function to generate and download PDF
+    const downloadPDF = async () => {
+        const element = tableRef.current;
+        const canvas = await html2canvas(element, { scale: 2 }); // Render the table as a canvas
+        const imgData = canvas.toDataURL('image/png'); // Convert canvas to image
+        const pdf = new jsPDF('p', 'mm', 'a4'); // Create a new PDF instance
+        const pdfWidth = pdf.internal.pageSize.getWidth();
+        const pdfHeight = (canvas.height * pdfWidth) / canvas.width;
 
-    function view(id) {
-        console.log(id);
-    }
-
-    const updateStatus = async (id, status) => {
-        try {
-            let url = `http://82.112.237.134:8080/customer/${id}/status`;
-            let response = await fetch(url, {
-                method: 'PATCH',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify({ status })
-            });
-            if (!response.ok) {
-                throw new Error(`HTTP error! status: ${response.status}`);
-            }
-            let updatedCustomer = await response.json();
-            setData(data.map(customer => customer._id === id ? updatedCustomer.data : customer));
-        } catch (error) {
-            console.error('Error updating status:', error);
-        }
+        pdf.addImage(imgData, 'PNG', 0, 0, pdfWidth, pdfHeight); // Add the image to the PDF
+        pdf.save('hospital_list.pdf'); // Save the PDF
     };
 
     return (
         <>
+         <button onClick={downloadPDF} style={{ marginRight: '10px', float:'right' ,backgroundColor: '#007bff',
+    color: '#fff' ,border:'none',padding:'5px'}}>
+                    Download PDF
+                </button>
             <div className="container">
-                <div className="table-container">
-                    <table>
+                {/* Button to trigger PDF download */}
+               
+
+                {/* Table to display hospital data */}
+                <div className="table-container" ref={tableRef}>
+                    <table border="1">
+                        <thead>
                             <tr>
                                 <th>Hospital Name</th>
                                 <th>Phone Number</th>
@@ -70,6 +68,8 @@ function AllHospitalList() {
                                 <th>Email</th>
                                 <th>City</th>
                             </tr>
+                        </thead>
+                        <tbody>
                             {data.map((item, index) => (
                                 <tr key={index}>
                                     <td>{item.hospitalName}</td>
@@ -78,9 +78,9 @@ function AllHospitalList() {
                                     <td>{item.speciality}</td>
                                     <td>{item.email}</td>
                                     <td>{item.tahsil}</td>
-                                    
                                 </tr>
                             ))}
+                        </tbody>
                     </table>
                 </div>
             </div>

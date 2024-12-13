@@ -142,22 +142,22 @@ function Home() {
             <div className="works">
                 <div className="work" data-aos='fade-left' data-aos-duration='1000'>
                     <img src={work} alt="" />
-                    <span>5k+</span>
+                    <span>2k+</span>
                     <span>TRAINED ADVISORS</span>
                 </div>
                 <div className="work" data-aos='fade-up' data-aos-duration='1200'>
                     <img src={happy} alt="" />
-                    <span>1 Lakh+</span>
+                    <span>15K+</span>
                     <span>HAPPY CUSTOMERS</span>
                 </div>
                 <div className="work" data-aos='fade-down' data-aos-duration='1400'>
                     <img src={together} className='together' alt="" />
-                    <span>50+</span>
+                    <span>20+</span>
                     <span>INSURANCE PARTNERS</span>
                 </div>
                 <div className="work" data-aos='fade-right' data-aos-duration='1600'>
                     <img src={stay} alt="" />
-                    <span>5 Lakh+</span>
+                    <span>50K+</span>
                     <span>POLICIES SOLD</span>
                 </div>
             </div>
@@ -252,7 +252,33 @@ function Home() {
                                         <img src={customer} alt="" />
                                     </div>
                                     <div className="customer-info">
-                                        <h6>Christopher</h6>
+                                        <h6>Arvind Fulzele</h6>
+                                        <p>“Best Supporting Staff 24/7 Servives”</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide className='swiper-feedback'>
+                            <div className="cc">
+                                <div className="customer">
+                                    <div className="customer-img">
+                                        <img src={customer} alt="" />
+                                    </div>
+                                    <div className="customer-info">
+                                        <h6>Mr. Dashrath Daulat Patil </h6>
+                                        <p>“I was Greate Experience With Jivit-Healthcare & Medical Services Pvt. Ltd..”</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide className='swiper-feedback'>
+                            <div className="cc">
+                                <div className="customer">
+                                    <div className="customer-img">
+                                        <img src={customer} alt="" />
+                                    </div>
+                                    <div className="customer-info">
+                                        <h6>Nilesh Rathod</h6>
                                         <p>“I was able to get an appointment quickly, which was great for my urgent issue.”</p>
                                     </div>
                                 </div>
@@ -267,19 +293,6 @@ function Home() {
                                     <div className="customer-info">
                                         <h6>Aditya</h6>
                                         <p>Provide Best Service And Quick Response </p>
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='swiper-feedback'>
-                            <div className="cc">
-                                <div className="customer">
-                                    <div className="customer-img">
-                                        <img src={customer} alt="" />
-                                    </div>
-                                    <div className="customer-info">
-                                        <h6>Abhisekh</h6>
-                                        <p>“I was able to get an appointment quickly, which was great for my urgent issue.”</p>
                                     </div>
                                 </div>
                             </div>

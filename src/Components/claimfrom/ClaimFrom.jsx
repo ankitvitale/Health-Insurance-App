@@ -11,7 +11,7 @@ const ClaimRequestForm = () => {
   const [address, setAddress] = useState("");
   const [chiefComplaints, setChiefComplaints] = useState("");
   const [provisionalDiagnosis, setProvisionalDiagnosis] = useState("");
-  const [planOfTreatmentMedical, setPlanOfTreatmentMedical] = useState("");
+  const [planOfTreatmentMedical, setPlanOfTreatmentMedical] = useState("Na");
   const [planOfTreatmentSurgical, setPlanOfTreatmentSurgical] = useState("");
   const [grAilment, setGrAilment] = useState("");
   const [grAilmentCode, setGrAilmentCode] = useState("");
@@ -254,7 +254,7 @@ const ClaimRequestForm = () => {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label>Plan of Treatment (Medical)</label>
             <input
               type="text"
@@ -262,17 +262,21 @@ const ClaimRequestForm = () => {
               onChange={(e) => setPlanOfTreatmentMedical(e.target.value)}
               required
             />
-          </div>
+          </div> */}
 
-          <div>
-            <label>Plan of Treatment (Surgical)</label>
-            <input
-              type="text"
-              value={planOfTreatmentSurgical}
-              onChange={(e) => setPlanOfTreatmentSurgical(e.target.value)}
-              required
-            />
-          </div>
+       <div>
+  <label htmlFor="planOfTreatment">Plan of Treatment</label>
+  <select
+    id="planOfTreatment"
+    value={planOfTreatmentSurgical}
+    onChange={(e) => setPlanOfTreatmentSurgical(e.target.value)}
+    required
+  >
+    <option value="">--Select Treatment--</option>
+    <option value="Surgical">Surgical</option>
+    <option value="Medical">Medical</option>
+  </select>
+</div>
 
           <div>
             <label>General Ailment</label>
@@ -468,8 +472,8 @@ const ClaimRequestForm = () => {
               type="file"
               onChange={(e) => setParishitdocument(e.target.files[0])}
             />
-          </div>
-
+          </div> 
+        
           <button type="submit">Submit Claim Request</button>
         </div>
       </form>

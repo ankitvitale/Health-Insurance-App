@@ -62,9 +62,9 @@ function Footer() {
                             </div>
                         </div>
                     </div>
-                    <p className='fp'>For complete information on policy terms, conditions, exclusions, and limitations, please consult the policy brochure carefully before finalizing your purchase.</p>
+                   
                 </div>
-               
+                <p className='fp'>For complete information on policy terms, conditions, exclusions, and limitations, please consult the policy brochure carefully before finalizing your purchase.</p>
                 <hr />
                 <div className="footer-icon">
                     <div className="ficon">

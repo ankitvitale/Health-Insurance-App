@@ -74,7 +74,21 @@ function Card() {
     const dob = new Date(data.dateOfBirth);
     const doi = new Date(data.cardIssueDate);
     const dor = new Date(data.dateOfRetirement);
-    console.log(dob.toLocaleDateString())
+    const formattedDate = dob.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+    const formatedoi = doi.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+    const formatedor = dor.toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
     return (
         <>
             <div className="img" ref={printRef}>
@@ -85,7 +99,7 @@ function Card() {
                 <div className="card">
                     <h3 className='h3'> {data.cardNo}</h3>
                     <p className='hh'> {data.fullName}</p>
-                    <p className='dob'>  {dob.toLocaleDateString()}</p>
+                    <p className='dob'>  {formattedDate}</p>
                     <p className='dob'> {data.departmentName}</p>
                     <p className='dob'>  {data.departmentLocation}</p>
                     <p className='dob'> {data.designation}</p>
@@ -94,8 +108,8 @@ function Card() {
                 <div className="cardspan1">DOI</div>
                 <div className="card1">
                     <p className='dob'>  {data.gender || "Male"}</p>
-                    <p className='dob'>  {doi.toLocaleDateString()}</p>
-                    <p className='dob'> {dor.toLocaleDateString()}</p>
+                    <p className='dob'>  {formatedoi}</p>
+                    <p className='dob'> {formatedor}</p>
                 </div>
                 <div className="line"></div>
                 <div className="line2">Government</div>
@@ -107,7 +121,8 @@ function Card() {
                                 <th>Name</th>
                                 <th>Gender</th>
                                 <th>Age</th>
-                                <th>Relation</th></tr>
+                                <th>Relation</th>
+                            </tr>
 
                         </thead>
                         <tbody>

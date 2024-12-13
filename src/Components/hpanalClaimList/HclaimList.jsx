@@ -62,7 +62,7 @@
 //                 console.error("Token is missing, invalid, or malformed.");
 //                 return;
 //             }
-            
+
 //             try {
 //                 let response = await fetch(url, {
 //                     method: 'GET',
@@ -71,11 +71,11 @@
 //                         'Content-Type': 'application/json',
 //                     },
 //                 });
-    
+
 //                 if (!response.ok) {
 //                     throw new Error(`HTTP error! status: ${response.status}`);
 //                 }
-                
+
 //                 let emp = await response.json();
 //                 setData(emp);
 //                 setFilteredData(emp);
@@ -83,12 +83,12 @@
 //                 console.error('Error fetching data:', error);
 //             }
 //         }
-        
+
 //         getData();
 //     }, [token]);
 
 
-    
+
 //     function isTokenValid(token) {
 //         const parts = token.split('.');
 //         return parts.length === 3;
@@ -97,7 +97,7 @@
 //     const handleSearch = (event) => {
 //         const value = event.target.value;
 //         setSearchTerm(value);
-        
+
 //         const filtered = data.filter(item =>
 //             item.healthCardNo.toLowerCase().includes(value.toLowerCase()) ||
 //             item.patientName.toLowerCase().includes(value.toLowerCase()) ||
@@ -228,7 +228,11 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                     <p><strong>Card No:</strong> {claim.healthCardNo}</p>
                     <p><strong>Patient Name:</strong> {claim.patientName}</p>
                     <p><strong>Provisional Diagnosis:</strong> {claim.provisionalDiagnosis}</p>
-                    <p><strong>Date of Admission:</strong> {claim.dateOfAdmission}</p>
+                    <p><strong>Date of Admission:</strong> {new Date(claim.dateOfAdmission).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })}</p>
                     <p><strong>Total Expense:</strong> {claim.totalExpenseHospitalization}</p>
                     <p><strong>Address:</strong> {claim.address}</p>
                     <p><strong>Doctor:</strong> {claim.nameOfDoctor}</p>
@@ -238,40 +242,40 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                     <p><strong>Expected Length of Stay:</strong> {claim.expectedLengthOfStay}</p>
                     <p><strong>Chief Complaints:</strong> {claim.chiefComplaints}</p>
                     <p><strong>Status:</strong> {claim.status}</p>
-                    <p><strong>Discharge message:</strong> {claim.massage? claim.massage : 'Not Discharge Yet'}</p>
-                  <div className='discharge' style={{display:'flex', flexWrap:'wrap', gap:'12px'}}>
-                      <p><strong>Documents:</strong></p>
-                      <span>
-                          <p>Aadhar:</p>
-                          <img src={claim.aadharCard} alt="Aadhar Card" style={{ width: '140px'}} />
-                      </span>
-                      <span>
-                          <p>Promissory:</p>
-                          <img src={claim.promissoryNote} alt="Promissory Note" style={{ width: '140px' }} />
-                      </span>
-                      <span>
-                          <p>Jivat Card:</p>
-                          <img src={claim.jivatHealthCard} alt="Jivat Health Card" style={{ width: '140px'}} />
-                      </span>
-                      <span>
-                          <p>Salary Cheque:</p>
-                          <img src={claim.salaryACCheque} alt="Salary AC Cheque" style={{ width: '140px' }} />
-                      </span>
-                      <span>
-                          <p>Discharge</p>
-                          {
-                            claim.dischargecard ? <img src={claim.dischargecard} alt="Salary AC Cheque" style={{ width: '140px' }} /> :'Not Discharge Yet'
-                          }
-                          
-                      </span>
-                      <span>
-                          <p>finalBill</p>
-                          {
-                            claim.finalbill ? <img src={claim.finalbill} alt="Salary AC Cheque" style={{ width: '140px' }} /> :'Not Discharge Yet'
-                          }
-                          
-                      </span>
-                  </div>
+                    <p><strong>Discharge message:</strong> {claim.massage ? claim.massage : 'Not Discharge Yet'}</p>
+                    <div className='discharge' style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
+                        <p><strong>Documents:</strong></p>
+                        <span>
+                            <p>Aadhar:</p>
+                            <img src={claim.aadharCard} alt="Aadhar Card" style={{ width: '140px' }} />
+                        </span>
+                        <span>
+                            <p>Promissory:</p>
+                            <img src={claim.promissoryNote} alt="Promissory Note" style={{ width: '140px' }} />
+                        </span>
+                        <span>
+                            <p>Jivat Card:</p>
+                            <img src={claim.jivatHealthCard} alt="Jivat Health Card" style={{ width: '140px' }} />
+                        </span>
+                        <span>
+                            <p>Salary Cheque:</p>
+                            <img src={claim.salaryACCheque} alt="Salary AC Cheque" style={{ width: '140px' }} />
+                        </span>
+                        <span>
+                            <p>Discharge</p>
+                            {
+                                claim.dischargecard ? <img src={claim.dischargecard} alt="Salary AC Cheque" style={{ width: '140px' }} /> : 'Not Discharge Yet'
+                            }
+
+                        </span>
+                        <span>
+                            <p>finalBill</p>
+                            {
+                                claim.finalbill ? <img src={claim.finalbill} alt="Salary AC Cheque" style={{ width: '140px' }} /> : 'Not Discharge Yet'
+                            }
+
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -363,7 +367,7 @@ const HclaimList = () => {
     const [filteredData, setFilteredData] = useState([]);
     const [searchTerm, setSearchTerm] = useState('');
     const [selectedClaim, setSelectedClaim] = useState(null);
-    const [dischargeClaimId, setDischargeClaimId] = useState(null); 
+    const [dischargeClaimId, setDischargeClaimId] = useState(null);
     const navigate = useNavigate();
     const token = localStorage.getItem('jwtToken');
 
@@ -375,7 +379,7 @@ const HclaimList = () => {
             }
 
             try {
-                 let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
+                let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
                 //let url = `http://localhost:8080/hospitalCleamRequests`;
 
                 let response = await fetch(url, {
@@ -425,17 +429,22 @@ const HclaimList = () => {
     const handleCloseModal = () => {
         setSelectedClaim(null);
     };
-        const handleDownload = (id) => {
+    const handleDownload = (id) => {
         navigate(`pdf/${id}`);
     };
 
     const handleDischarge = (id) => {
         setDischargeClaimId(id);
     };
-const handleApprovel = (id) => {
-    navigate(`approvel/${id}`);
-};
-
+    const handleApprovel = (id) => {
+        navigate(`approvel/${id}`);
+    };
+    const DOA = new Date(data.dateOfAdmission).toLocaleDateString('en-GB', {
+        day: '2-digit',
+        month: '2-digit',
+        year: 'numeric',
+    });
+    console.log(data)
     return (
         <>
             <h1>Claim List</h1>
@@ -470,12 +479,19 @@ const handleApprovel = (id) => {
                                     <td>{item.patientName}</td>
                                     <td>{item.provisionalDiagnosis}</td>
                                     <td>{item.totalExpenseHospitalization}</td>
-                                    <td>{item.dateOfAdmission}</td>
+                                    <td>
+                                    {new Date(item.dateOfAdmission).toLocaleDateString('en-GB', {
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
+                                    })}
+                                    </td>
+                                  
                                     <td>{item.status}</td>
                                     <td>
                                         <button className='td' onClick={() => handleViewClick(item)}>View</button>
                                         <button className='td' onClick={() => handleDownload(item.id)}>Download</button>
-                                         {item.status === 'Authorized' ?  <button className='td' onClick={() => handleApprovel(item.id)}>Approval</button> :'Processing' }
+                                        {item.status === 'Authorized' ? <button className='td' onClick={() => handleApprovel(item.id)}>Approval</button> : 'Processing'}
                                     </td>
                                     <td>
                                         {item.status === 'Authorized' ? (

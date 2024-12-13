@@ -13,7 +13,11 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                   <p><strong>Card No:</strong> {claim.healthCardNo}</p>
                   <p><strong>Patient Name:</strong> {claim.patientName}</p>
                   <p><strong>Provisional Diagnosis:</strong> {claim.provisionalDiagnosis}</p>
-                  <p><strong>Date of Admission:</strong> {claim.dateOfAdmission}</p>
+                  <p><strong>Date of Admission:</strong> {new Date(claim.dateOfAdmission).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  })}</p>
                   <p><strong>Total Expense:</strong> {claim.totalExpenseHospitalization}</p>
                   <p><strong>Address:</strong> {claim.address}</p>
                   <p><strong>Doctor:</strong> {claim.nameOfDoctor}</p>
@@ -28,11 +32,11 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                       <p><strong>Documents:</strong></p>
                       <span>
                           <p>Aadhar:</p>
-                          <img src={claim.aadharCard} alt="Aadhar Card" style={{ width: '140px'}} />
+                          <img src={`https://82.112.237.134:8080/${claim.aadharCard}`} alt="Aadhar Card" style={{ width: '140px' }} />
                       </span>
                       <span>
                           <p>Promissory:</p>
-                          <img src={claim.promissoryNote} alt="Promissory Note" style={{ width: '140px' }} />
+                          <img src={`http://82.112.237.134:8080/${claim.promissoryNote}`} alt="Promissory Note" style={{ width: '140px' }} />
                       </span>
                       <span>
                           <p>Jivat Card:</p>
@@ -45,14 +49,14 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                       <span>
                           <p>Discharge</p>
                           {
-                            claim.dischargecard ? <img src={claim.dischargecard} alt="Salary AC Cheque" style={{ width: '140px' }} /> :'Not Discharge Yet'
+                            claim.dischargecard ? <img src={claim.dischargecard} alt="Discharge" style={{ width: '140px' }} /> :'Not Discharge Yet'
                           }
                           
                       </span>
                       <span>
                           <p>finalBill</p>
                           {
-                            claim.finalbill ? <img src={claim.finalbill} alt="Salary AC Cheque" style={{ width: '140px' }} /> :'Not Discharge Yet'
+                            claim.finalbill ? <img src={claim.finalbill} alt="Final-Bill" style={{ width: '140px' }} /> :'Not Discharge Yet'
                           }
                           
                       </span>
@@ -187,7 +191,11 @@ const handleCloseModal = () => {
                 <td>{request.hospital?.hospitalName}</td>
                 <td>{request.patientName}</td>
                 <td>{request.provisionalDiagnosis}</td>
-                <td>{request.dateOfAdmission}</td>
+                <td> {new Date(request.dateOfAdmission).toLocaleDateString('en-GB', {
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
+                                    })} </td> 
                 <td>{request.totalExpenseHospitalization}</td>
                 <td>{request.healthCardNo}</td>
                 <td>{request.status}</td>

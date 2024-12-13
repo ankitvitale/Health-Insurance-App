@@ -1,11 +1,11 @@
-footer {
-  height: 450px;
+#footer {
+  /* height: 450px; */
   width: 100%;
   background-image: linear-gradient(90deg, #FDF4F6, #b2a6ffd6);
 
 }
 .footer {
-  height: 350px;
+  /* height: 350px; */
   width: 100%;
   display: flex;
   align-items: center;
@@ -203,7 +203,12 @@ hr{
 }
 }
 
-@media (min-width: 479px) and (max-width: 768px){
+
+
+@media screen and (min-width: 480px) and (max-width: 768px){
+  #footer{
+    height: 500px;
+  }
   .footer {
     height: auto;
     justify-content: center;
@@ -280,4 +285,22 @@ hr{
 .copy span{
   font-size: 10px;
 }
+}
+
+@media screen and (min-width: 768px) and (max-width: 1440px){
+  p{
+    font-size: 18px;
+  }
+  #footer{
+    height: auto;
+  }
+  .footer {
+    /* height: 350px; */
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    flex-wrap: nowrap;
+  }
+ 
 }

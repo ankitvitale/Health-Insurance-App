@@ -38,6 +38,12 @@ const Approvel = () => {
   }, [id, token]);
 
   console.log(data)
+  const DOA = new Date(data.dateOfAdmission).toLocaleDateString('en-GB', {
+    day: '2-digit',
+    month: '2-digit',
+    year: 'numeric',
+  });
+  console.log(DOA);
   const handlePrint = () => {
     const doc = new jsPDF({ orientation: 'portrait', unit: 'mm', format: 'a4', putOnlyUsedFonts: true, floatPrecision: 16 });
 
@@ -56,22 +62,23 @@ const Approvel = () => {
     doc.setFontSize(10);
     doc.text('Contact Us : +91-0257-2355100,+91-9322006810,+91-9665450999', 105, 45, { align: 'center' });
     doc.setFontSize(10);
-    doc.text('E-MAIL:-info@jivithealthcare.com', 105, 50, { align: 'center' });
+    doc.text('E-MAIL:-info@jivithealthcare.in', 105, 50, { align: 'center' });
     doc.setFontSize(10);
-    doc.text('Website :  www.jivithealthcare.com', 105, 55, { align: 'center' });
+    doc.text('Website :  www.jivithealthcare.in ', 105, 55, { align: 'center' });
 
     // Date
-    doc.text(`DATE: ${data.date}`, 200, 90, { align: 'right', fontSize: '18px' });
+    doc.text(`DATE: ${DOA}`, 200, 90, { align: 'right', fontSize: '18px' });
 
     // Patient Information
     doc.setFontSize(12);
     doc.text(`Authorization Letter: ${data.patientName}`, 10, 90);
     doc.text(`Hospital Name: ${data.hospital?.hospitalName}`, 10, 100);
     doc.text(`Employee/Beneficiary Card Number: ${data.healthCardNo}`, 10, 110);
-    doc.text(`Authorization No: ${data.authorizationNo || 'N/A'}`, 10, 120);
+    doc.text(`Authorization No: ${data.authorizationNo  || 'N/A'}`, 10, 120);
 
     // Add a line break
     doc.text('', 10, 130);
+
 
     // Table Headers
     const headers = [["Field", "Details"]];
@@ -79,7 +86,7 @@ const Approvel = () => {
       ["Name of Patient", data.patientName],
       ["Department Name", data.departmentName],
       ["Duration of Ailment", data.durationOfAilment],
-      ["Date of Admission", data.dateOfAdmission],
+      ["Date of Admission", DOA],
       ["Provisional Diagnosis", data.provisionalDiagnosis],
       ["Authorized Hospitalization (In Days)", data.expectedLengthOfStay],
       ["Room Type", data.classOfAccommodation],
@@ -97,7 +104,7 @@ const Approvel = () => {
     });
 
     // Remarks and Instructions
-    let remark = `Case is coverd ${data.planOfTreatmentSurgical} managment bii will settled as per agreed MOU rate `
+    let remark = `Case is coverd for ${data.planOfTreatmentSurgical} management bill will be settled as per agreed MOU rate `
     doc.text('Remark:', 10, doc.autoTable.previous.finalY + 10);
     doc.text(remark, 10, 260)
 
@@ -187,7 +194,7 @@ const Approvel = () => {
     doc.text(ft, 10, 250)
 
     // Save the PDF
-    doc.save('PreAuthorizationLetter.pdf');
+    doc.save(`${data.patientName}.pdf`);
   };
 
 
@@ -201,8 +208,7 @@ const Approvel = () => {
 
       <div className="main-contentt mt-4">
         <div className="flex justify-between">
-          <p>CONTACT US: +91-0257-2355100, +91-9322006810, +91-9665450999</p>
-          <p>DATE: {data.date}</p>
+          <p> <strong>CONTACT US:</strong> +91-0257-2355100, +91-9322006810, +91-9665450999</p>
         </div>
         <div className="mt-4">
           <p><strong>Authorization Letter:</strong> {data.patientName}</p>
@@ -227,7 +233,7 @@ const Approvel = () => {
             </tr>
             <tr>
               <td className="border border-gray-300 p-2"><strong>Date of Admission:</strong></td>
-              <td className="border border-gray-300 p-2">{data.dateOfAdmission}</td>
+              <td className="border border-gray-300 p-2">{DOA}</td>
             </tr>
             <tr>
               <td className="border border-gray-300 p-2"><strong>Provisional Diagnosis:</strong></td>
@@ -252,7 +258,7 @@ const Approvel = () => {
             </tr>
           </tbody>
         </table>
-        <span>Remark: Case is coverd <strong>{data.planOfTreatmentSurgical} </strong> managment bii will settled as per agreed MOU rate</span>
+        <span>Remark: Case is coverd for <strong>{data.planOfTreatmentSurgical} </strong> management bill will be settled as per agreed MOU rate</span>
       </div>
       <div className="footer mt-4">
         <p><strong>Approved by:</strong> Mr. Mayur Sapkale</p>

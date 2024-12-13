@@ -379,7 +379,11 @@ console.log(data1)
                 <h4 className='ppdf'>PART- II ( To be filled in by Doctor/Hospital )</h4>
                 <tr>
                   <td className="border border-gray-300 p-2 text-left">
-                    <strong>Date Of Admition: </strong>{entry.dateOfAdmission}
+                    <strong>Date Of Admition: </strong> {new Date(entry.dateOfAdmission).toLocaleDateString('en-GB', {
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
+                                    })} 
                   </td>
                   <td className="border border-gray-300 p-2 text-left">
                     <strong>Chief Complaints: </strong>{entry.chiefComplaints}

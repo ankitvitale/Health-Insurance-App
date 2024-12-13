@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 
 const HospitalDetailModal = ({ hospital, onClose }) => {
     if (!hospital) return null;
@@ -25,22 +26,26 @@ const HospitalDetailModal = ({ hospital, onClose }) => {
                     <p><strong>OTP:</strong> {hospital.otp}</p>
                     <p><strong>Pincode:</strong> {hospital.pincode}</p>
                     <p><strong>Remark:</strong> {hospital.remark}</p>
-                    <p><strong>Expiration Time:</strong> {hospital.expirationTime}</p>
+                    <p><strong>Expiration Time:</strong>  {new Date(hospital.expirationTime).toLocaleDateString('en-GB', {
+                                        day: '2-digit',
+                                        month: '2-digit',
+                                        year: 'numeric',
+                                    })} </p>
                 </div>
             </div>
         </div>
     );
 };
- 
+
 function HospitalList() {
     const [data, setData] = useState([]);
     const [selectedHospital, setSelectedHospital] = useState(null); // State for the selected hospital
-
+const navigate = useNavigate()
     useEffect(() => {
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `http://82.112.237.134:8080/hospitals`;
+                let url = `http://82.112.237.134:8080/AllhospitalsList`;
                 
                 let response = await fetch(url, {
                     method: 'GET',
@@ -68,6 +73,33 @@ function HospitalList() {
     const handleViewClick = (hospital) => {
         setSelectedHospital(hospital); // Set the selected hospital to show in the modal
     };
+
+    const handleDeleteClick = async(id) =>{
+        const token = localStorage.getItem('token');
+         try {
+         let url = `http://82.112.237.134:8080/deleteHospital/${id}`
+           
+
+            const response = await fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    'Authorization': `Bearer ${token}`,
+                    'Content-Type': 'application/json'
+                }
+            });
+            alert('Data Deleted')
+            // Check if the response is successful
+            if (!response.ok) {
+                throw new Error(`HTTP error! Status: ${response.status}`);
+            }
+
+            console.log('Beneficiary deleted successfully');
+            navigate('/admin/hospitallist');
+        } catch (error) {
+            console.error('Error deleting beneficiary:', error);
+        }
+
+    }
 
     const handleCloseModal = () => {
         setSelectedHospital(null); // Close the modal
@@ -100,6 +132,7 @@ function HospitalList() {
                                     <td>{item.tahsil}</td>
                                     <td>
                                         <button className='td' onClick={() => handleViewClick(item)}>View</button>
+                                        <button className='td' onClick={() => handleDeleteClick(item.id)}>Delete</button>
                                     </td>
                                 </tr>
                             ))}
