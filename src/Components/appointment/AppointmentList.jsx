@@ -10,7 +10,7 @@ const AppointmentTable = () => {
             const token = localStorage.getItem('token'); 
 
             try {
-                const response = await fetch(`http://82.112.237.134:8080/Allappointment`, {
+                const response = await fetch(`https://jivithealthcare.in/api/Allappointment`, {
                     method: 'GET',
                     headers: {
                         'Authorization': `Bearer ${token}`, 
@@ -43,7 +43,7 @@ console.log(process.env.REACT_APP_API_KEY)
                 )
             );
 
-            let url = `http://82.112.237.134:8080/AppoinmentStatusAuthorized/${id}`;
+            let url = `https://jivithealthcare.in/api/AppoinmentStatusAuthorized/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {
@@ -76,7 +76,7 @@ console.log(process.env.REACT_APP_API_KEY)
                 )
             );
 
-            let url = `http://82.112.237.134:8080/AppoinmentStatusReject/${id}`;
+            let url = `https://jivithealthcare.in/api/AppoinmentStatusReject/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

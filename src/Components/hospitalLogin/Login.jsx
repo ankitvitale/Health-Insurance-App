@@ -25,7 +25,7 @@ const navigate = useNavigate()
     setMessage('');
 
     try {
-      const response = await axios.post(`http://82.112.237.134:8080/send-otp`, null, {
+      const response = await axios.post(`https://jivithealthcare.in/api/send-otp`, null, {
         params: { email: email },
       });
       setMessage(response.data);  
@@ -48,7 +48,7 @@ const navigate = useNavigate()
     setMessage('');
 
     try {
-      const response = await axios.post(`http://82.112.237.134:8080/validate-otp`, null, {
+      const response = await axios.post(`https://jivithealthcare.in/api/validate-otp`, null, {
         params: { email: email, otp: otp },
       });
       setMessage(`Success! Token: ${response.data.jwtToken}`); 

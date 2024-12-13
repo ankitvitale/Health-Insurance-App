@@ -7,7 +7,7 @@ function Tickets() {
     useEffect(() => {
         async function getData() {
             try { 
-                let url = `http://82.112.237.134:8080/RaiseTicketInfo`;
+                let url = `https://jivithealthcare.in/api/RaiseTicketInfo`;
                 
                 let response = await fetch(url, {
                     method: 'GET', 

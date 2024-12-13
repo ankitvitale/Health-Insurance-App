@@ -296,7 +296,7 @@ const DischargeModal = ({ claimId, onClose }) => {
         formData.append('dischargecard', dischargeCard);
 
         try {
-            const response = await fetch(`http://82.112.237.134:8080/updateCleamRequest/${claimId}`, {
+            const response = await fetch(`https://jivithealthcare.in/api/updateCleamRequest/${claimId}`, {
                 method: 'PUT',
                 headers: {
                     Authorization: `Bearer ${token}`,
@@ -379,7 +379,7 @@ const HclaimList = () => {
             }
 
             try {
-                let url = `http://82.112.237.134:8080/hospitalCleamRequests`;
+                let url = `https://jivithealthcare.in/api/hospitalCleamRequests`;
                 //let url = `http://localhost:8080/hospitalCleamRequests`;
 
                 let response = await fetch(url, {

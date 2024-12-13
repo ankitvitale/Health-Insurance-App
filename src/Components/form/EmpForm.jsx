@@ -81,7 +81,7 @@ const EmpForm = () => {
     console.log('Form Data:', formData);
 
     try {
-      const response = await fetch(`http://82.112.237.134:8080/addBenificiary`, {
+      const response = await fetch(`https://jivithealthcare.in/api/addBenificiary`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

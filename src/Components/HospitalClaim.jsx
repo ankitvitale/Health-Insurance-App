@@ -36,7 +36,7 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                       </span>
                       <span>
                           <p>Promissory:</p>
-                          <img src={`http://82.112.237.134:8080/${claim.promissoryNote}`} alt="Promissory Note" style={{ width: '140px' }} />
+                          <img src={`https://jivithealthcare.in/api/${claim.promissoryNote}`} alt="Promissory Note" style={{ width: '140px' }} />
                       </span>
                       <span>
                           <p>Jivat Card:</p>
@@ -77,7 +77,7 @@ const CleamRequestList = () => {
   useEffect(() => {
     const fetchCleamRequests = async () => {
       try {
-        let response = await fetch(`http://82.112.237.134:8080/adminCleamRequests`, {
+        let response = await fetch(`https://jivithealthcare.in/api/adminCleamRequests`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -102,7 +102,7 @@ const CleamRequestList = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      let url = `http://82.112.237.134:8080/updateStatusAuthorized/${id}`;
+      let url = `https://jivithealthcare.in/api/updateStatusAuthorized/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -129,7 +129,7 @@ const CleamRequestList = () => {
 
   const updateStatusreject = async (id, status) => {
     try {
-      let url = `http://82.112.237.134:8080/updateStatusRejected/${id}`;
+      let url = `https://jivithealthcare.in/api/updateStatusRejected/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

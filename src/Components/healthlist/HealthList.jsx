@@ -51,7 +51,7 @@ const HealthList = () => {
     const fetchCleamRequests = async () => {
       const token = localStorage.getItem('token');
       try {
-        let response = await fetch(`http://82.112.237.134:8080/adminHeathCheckupList`, {
+        let response = await fetch(`https://jivithealthcare.in/api/adminHeathCheckupList`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -85,7 +85,7 @@ const HealthList = () => {
         )
       );
 
-      let url = `http://82.112.237.134:8080/healthCheckupAuthorized/${id}`;
+      let url = `https://jivithealthcare.in/api/healthCheckupAuthorized/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -116,7 +116,7 @@ const HealthList = () => {
         )
       );
 
-      let url = `http://82.112.237.134:8080/healthCheckupRejected/${id}`;
+      let url = `https://jivithealthcare.in/api/healthCheckupRejected/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

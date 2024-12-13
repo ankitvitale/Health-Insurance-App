@@ -15,7 +15,7 @@ function App() {
         async function getData() {
 
             try {
-                let url = `http://82.112.237.134:8080/benificiaries`;
+                let url = `https://jivithealthcare.in/api/benificiaries`;
                 // let url = `http://localhost:8080/benificiaries`;
 
                 let response = await fetch(url, {
@@ -52,7 +52,7 @@ function App() {
     const deleteData = async (id) => {
         try {
             // const url = `http://localhost:8080/deleteBeneficiary/${id}`;
-            const url = `http://82.112.237.134:8080/deleteBeneficiary/${id}`;
+            const url = `https://jivithealthcare.in/api/deleteBeneficiary/${id}`;
 
             const response = await fetch(url, {
                 method: 'DELETE',

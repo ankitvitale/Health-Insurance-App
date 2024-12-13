@@ -31,7 +31,7 @@ const HealthCheckupForm = () => {
 
     try {
       const response = await fetch(
-         `http://82.112.237.134:8080/healthCheckupReqest`,
+         `https://jivithealthcare.in/api/healthCheckupReqest`,
         //`http://localhost:8080/healthCheckupReqest`,
 
         {

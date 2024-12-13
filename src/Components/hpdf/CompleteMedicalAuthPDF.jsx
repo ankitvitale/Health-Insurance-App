@@ -256,7 +256,7 @@ const CompleteMedicalAuthPDF = () => {
   useEffect(() => {
     async function getData() {
       try {
-        let url = `http://82.112.237.134:8080/cleamRequest/${id}`;
+        let url = `https://jivithealthcare.in/api/cleamRequest/${id}`;
         let response = await fetch(url, {
           method: 'GET',
           headers: {

@@ -56,7 +56,7 @@ function Home() {
             console.log('Form submitted:', formData);
             
             // Make a POST request using fetch
-            const response = await fetch(`http://82.112.237.134:8080/appointment`, {
+            const response = await fetch(`https://jivithealthcare.in/api/appointment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

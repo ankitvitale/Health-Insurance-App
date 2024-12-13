@@ -45,7 +45,7 @@ const navigate = useNavigate()
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `http://82.112.237.134:8080/AllhospitalsList`;
+                let url = `https://jivithealthcare.in/api/AllhospitalsList`;
                 
                 let response = await fetch(url, {
                     method: 'GET',
@@ -77,7 +77,7 @@ const navigate = useNavigate()
     const handleDeleteClick = async(id) =>{
         const token = localStorage.getItem('token');
          try {
-         let url = `http://82.112.237.134:8080/deleteHospital/${id}`
+         let url = `https://jivithealthcare.in/api/deleteHospital/${id}`
            
 
             const response = await fetch(url, {

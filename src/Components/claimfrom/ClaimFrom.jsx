@@ -99,7 +99,7 @@ const ClaimRequestForm = () => {
       const token = localStorage.getItem("jwtToken");
       console.log(token)
       const response = await fetch(
-        `http://82.112.237.134:8080/createCleamRequest`,
+        `https://jivithealthcare.in/api/createCleamRequest`,
         {
           method: "POST",
           headers: {

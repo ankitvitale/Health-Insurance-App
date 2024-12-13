@@ -21,7 +21,7 @@ let navigate = useNavigate()
     e.preventDefault();
 
     try {
-      const response = await fetch(`http://82.112.237.134:8080/auth/login`, {
+      const response = await fetch(`https://jivithealthcare.in/api/auth/login`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
