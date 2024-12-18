@@ -30,8 +30,7 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                       <p>
                           <strong>Doc1:</strong>
                           <img src={claim.doc1} alt="Aadhar Card" style={{ width: '140px'}} />
-                      </p>
-                     
+                      </p>   
                   </div>
               </div>
           </div>

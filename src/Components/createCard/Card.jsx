@@ -65,7 +65,7 @@ function Card() {
             const yPos = (pdfHeight - newHeight) / 2;
 
 
-            pdf.addImage(imgData, 'PNG', 5, -25, 200, newHeight);
+            pdf.addImage(imgData, 'PNG', 5, -10, 200, newHeight);
             pdf.save(`${data.fullName}.pdf`);
         });
     };
