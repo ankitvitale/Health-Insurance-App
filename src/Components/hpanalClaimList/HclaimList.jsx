@@ -248,14 +248,15 @@ const ClaimDetailModal = ({ claim, onClose }) => {
                         <span>
                             <p>Aadhar:</p>
                             <img src={claim.aadharCard} alt="Aadhar Card" style={{ width: '140px' }} />
+                           
                         </span>
                         <span>
                             <p>Promissory:</p>
                             <img src={claim.promissoryNote} alt="Promissory Note" style={{ width: '140px' }} />
                         </span>
                         <span>
-                            <p>Jivat Card:</p>
-                            <img src={claim.jivatHealthCard} alt="Jivat Health Card" style={{ width: '140px' }} />
+                            <p>Jivit Card:</p>
+                            <img src={claim.jivatHealthCard} alt="Jivit Health Card" style={{ width: '140px' }} />
                         </span>
                         <span>
                             <p>Salary Cheque:</p>
@@ -457,29 +458,29 @@ const HclaimList = () => {
             />
             <div className="container">
                 <div className="table-container">
-                    <table>
+                    <table className='table'>
                         <thead>
                             <tr>
-                                <th>Sr No.</th>
-                                <th>CardNo</th>
-                                <th>Patient Name</th>
-                                <th>Disease</th>
-                                <th>Amount</th>
-                                <th>Date Of Admission</th>
-                                <th>Status</th>
-                                <th>Action</th>
-                                <th>Discharge</th>
+                                <th className='th'>Sr No.</th>
+                                <th className='th'>CardNo</th>
+                                <th className='th'>Patient Name</th>
+                                <th className='th'>Disease</th>
+                                <th className='th'>Amount</th>
+                                <th className='th'>Date Of Admission</th>
+                                <th className='th'>Status</th>
+                                <th className='th'>Action</th>
+                                <th className='th'>Discharge</th>
                             </tr>
                         </thead>
                         <tbody>
                             {filteredData.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.id}</td>
-                                    <td>{item.healthCardNo}</td>
-                                    <td>{item.patientName}</td>
-                                    <td>{item.provisionalDiagnosis}</td>
-                                    <td>{item.totalExpenseHospitalization}</td>
-                                    <td>
+                                    <td className='td'>{item.id}</td>
+                                    <td className='td'>{item.healthCardNo}</td>
+                                    <td className='td'>{item.patientName}</td>
+                                    <td className='td'>{item.provisionalDiagnosis}</td>
+                                    <td className='td'>{item.totalExpenseHospitalization}</td>
+                                    <td className='td'>
                                     {new Date(item.dateOfAdmission).toLocaleDateString('en-GB', {
                                         day: '2-digit',
                                         month: '2-digit',
@@ -487,13 +488,13 @@ const HclaimList = () => {
                                     })}
                                     </td>
                                   
-                                    <td>{item.status}</td>
-                                    <td>
+                                    <td className='td'>{item.status}</td>
+                                    <td className='td'>
                                         <button className='td' onClick={() => handleViewClick(item)}>View</button>
                                         <button className='td' onClick={() => handleDownload(item.id)}>Download</button>
                                         {item.status === 'Authorized' ? <button className='td' onClick={() => handleApprovel(item.id)}>Approval</button> : 'Processing'}
                                     </td>
-                                    <td>
+                                    <td className='td'>
                                         {item.status === 'Authorized' ? (
                                             <button className='td' onClick={() => handleDischarge(item.id)}>Discharge</button>
                                         ) : 'Processing'}

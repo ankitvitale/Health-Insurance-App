@@ -30,24 +30,24 @@ table {
     
 }
 
-th, td { 
+.th, .td { 
     padding: 10px 10px;
     text-align: center;
     border-bottom: 1px solid #ddd;
 }
 
-th {
+.th {
     background-color: #007bff;
     color: #fff;
 }
 
-tr:nth-child(even) {
+.tr:nth-child(even) {
     background-color: #f9f9f9;
 }
 
 .td {
-    background-color: #007bff;
-    color: #fff;
+    background-color: #ffffff;
+    color: #121212;
     padding: 5px;
     width: 80px;
     border: none;
@@ -84,7 +84,7 @@ tr:nth-child(even) {
 
 
 @media (max-width: 768px) {
-    th, td {
+    .th, .td {
         padding: 8px 10px;
     }
 
@@ -92,21 +92,21 @@ tr:nth-child(even) {
         font-size: 1.5rem;
     }
 }
-
+/* 
 @media (max-width: 480px) {
-    th, td {
+    .th, .td {
         display: block;
         width: 100%;
         box-sizing: border-box;
     }
 
-    th {
+    .th {
         position: absolute;
         left: -9999px;
         top: -9999px;
     }
 
-    td {
+    .td {
         position: relative;
         padding-left: 50%;
         text-align: right;
@@ -114,7 +114,7 @@ tr:nth-child(even) {
         border-bottom: 1px solid #ddd;
     }
 
-    td:before {
+    .td:before {
         content: attr(data-label);
         position: absolute;
         left: 15px;
@@ -127,7 +127,7 @@ tr:nth-child(even) {
     .table-container {
         overflow-x: auto;
     }
-}
+} */
 @media screen and (min-width: 480px) and (max-width: 768px){
     table {
         width: 50%;

@@ -16,7 +16,8 @@ function CheckupList() {
             }
 
             try {
-                let url = `https://jivithealthcare.in/api/hospitalHeathCheckupList`;
+               let url = `https://jivithealthcare.in/api/hospitalHeathCheckupList`;
+          //   let url = `http://localhost:8080/api/hospitalHeathCheckupList`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {

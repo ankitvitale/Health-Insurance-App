@@ -1,71 +1,94 @@
 import React, { useEffect, useState } from 'react';
 
-
 const ClaimDetailModal = ({ claim, onClose }) => {
+  const [selectedImage, setSelectedImage] = useState(null);
+
   if (!claim) return null;
 
+  const handleImageClick = (src) => {
+    setSelectedImage(src);
+  };
+
+  const handleDownload = (src) => {
+    const link = document.createElement('a');
+    link.href = src;
+    link.setAttribute('download', 'image.jpg'); // Sets default filename
+    link.target = '_blank'; // Opens in new tab if necessary
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  };
   return (
-      <div className="modal-overlay">
-          <div className="modal-content">
-              <h2>Claim Details</h2>
-              <button className="close-button" onClick={onClose}>Close</button>
-              <div>
-                  <p><strong>Card No:</strong> {claim.healthCardNo}</p>
-                  <p><strong>Patient Name:</strong> {claim.patientName}</p>
-                  <p><strong>Provisional Diagnosis:</strong> {claim.provisionalDiagnosis}</p>
-                  <p><strong>Date of Admission:</strong> {new Date(claim.dateOfAdmission).toLocaleDateString('en-GB', {
-    day: '2-digit',
-    month: '2-digit',
-    year: 'numeric',
-  })}</p>
-                  <p><strong>Total Expense:</strong> {claim.totalExpenseHospitalization}</p>
-                  <p><strong>Address:</strong> {claim.address}</p>
-                  <p><strong>Doctor:</strong> {claim.nameOfDoctor}</p>
-                  <p><strong>Hospital:</strong> {claim.hospital.hospitalName}</p>
-                  <p><strong>Doctor Fee:</strong> {claim.doctorFeeSurgeonAss}</p>
-                  <p><strong>Room Rent:</strong> {claim.perDayRoomRent}</p>
-                  <p><strong>Expected Length of Stay:</strong> {claim.expectedLengthOfStay}</p>
-                  <p><strong>Chief Complaints:</strong> {claim.chiefComplaints}</p>
-                  <p><strong>Status:</strong> {claim.status}</p>
-                  <p><strong>Discharge message:</strong> {claim.massage? claim.massage : 'Not Discharge Yet'}</p>
-                  <div className='discharge' style={{display:'flex', flexWrap:'wrap', gap:'12px'}}>
-                      <p><strong>Documents:</strong></p>
-                      <span>
-                          <p>Aadhar:</p>
-                          <img src={`https://82.112.237.134:8080/${claim.aadharCard}`} alt="Aadhar Card" style={{ width: '140px' }} />
-                      </span>
-                      <span>
-                          <p>Promissory:</p>
-                          <img src={`https://jivithealthcare.in/api/${claim.promissoryNote}`} alt="Promissory Note" style={{ width: '140px' }} />
-                      </span>
-                      <span>
-                          <p>Jivat Card:</p>
-                          <img src={claim.jivatHealthCard} alt="Jivat Health Card" style={{ width: '140px'}} />
-                      </span>
-                      <span>
-                          <p>Salary Cheque:</p>
-                          <img src={claim.salaryACCheque} alt="Salary AC Cheque" style={{ width: '140px' }} />
-                      </span>
-                      <span>
-                          <p>Discharge</p>
-                          {
-                            claim.dischargecard ? <img src={claim.dischargecard} alt="Discharge" style={{ width: '140px' }} /> :'Not Discharge Yet'
-                          }
-                          
-                      </span>
-                      <span>
-                          <p>finalBill</p>
-                          {
-                            claim.finalbill ? <img src={claim.finalbill} alt="Final-Bill" style={{ width: '140px' }} /> :'Not Discharge Yet'
-                          }
-                          
-                      </span>
+    <div className="modal-overlay">
+      <div className="modal-content">
+        <h2>Claim Details</h2>
+        <button className="close-button" onClick={onClose}>Close</button>
+        <div>
+          <p><strong>Card No:</strong> {claim.healthCardNo}</p>
+          <p><strong>Patient Name:</strong> {claim.patientName}</p>
+          <p><strong>Provisional Diagnosis:</strong> {claim.provisionalDiagnosis}</p>
+          <p><strong>Date of Admission:</strong> {new Date(claim.dateOfAdmission).toLocaleDateString('en-GB', {
+            day: '2-digit',
+            month: '2-digit',
+            year: 'numeric',
+          })}</p>
+          <p><strong>Total Expense:</strong> {claim.totalExpenseHospitalization}</p>
+          <p><strong>Address:</strong> {claim.address}</p>
+          <p><strong>Doctor:</strong> {claim.nameOfDoctor}</p>
+          <p><strong>Hospital:</strong> {claim.hospital.hospitalName}</p>
+          <p><strong>Doctor Fee:</strong> {claim.doctorFeeSurgeonAss}</p>
+          <p><strong>Room Rent:</strong> {claim.perDayRoomRent}</p>
+          <p><strong>Expected Length of Stay:</strong> {claim.expectedLengthOfStay}</p>
+          <p><strong>Chief Complaints:</strong> {claim.chiefComplaints}</p>
+          <p><strong>Status:</strong> {claim.status}</p>
+          <p><strong>Discharge message:</strong> {claim.massage ? claim.massage : 'Not Discharge Yet'}</p>
+          <div className='discharge' style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
+            <p><strong>Documents:</strong></p>
+            {[
+              { label: 'Aadhar', src: `https://82.112.237.134:8080/${claim.aadharCard}` },
+              { label: 'Promissory', src: `https://jivithealthcare.in/api/${claim.promissoryNote}` },
+              { label: 'Jivat Card', src: claim.jivatHealthCard },
+              { label: 'Salary Cheque', src: claim.salaryACCheque },
+              { label: 'Discharge', src: claim.dischargecard },
+              { label: 'Final Bill', src: claim.finalbill }
+            ].map((doc, index) => (
+              doc.src ? (
+                <span key={index} style={{ textAlign: 'center' }}>
+                  <p>{doc.label}:</p>
+                  <img
+                    src={doc.src}
+                    alt={doc.label}
+                    style={{ width: '140px', height: 'auto', cursor: 'pointer', borderRadius: '8px', boxShadow: '0 2px 8px rgba(0, 0, 0, 0.2)' }}
+                    onClick={() => handleImageClick(doc.src)}
+                  />
+                  <div style={{ marginTop: '8px' }}>
+                  
+                    <button style={{padding:"5px",backgroundColor:"#0073CF",color:"white",border:"none" }} onClick={() => handleImageClick(doc.src)}>Show</button>
                   </div>
-              </div>
+                </span>
+              ) : (
+                <span key={index}>{doc.label}: Not Available</span>
+              )
+            ))}
           </div>
+        </div>
       </div>
+      {selectedImage && (
+        <div className="fullscreen-overlay" onClick={() => setSelectedImage(null)}>
+          <div className="fullscreen-content" style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}>
+            <img src={selectedImage} alt="Full View" style={{ maxWidth: '90%', maxHeight: '90vh', borderRadius: '8px' }} />
+            <div style={{ marginTop: '12px' }}>
+              <button  onClick={() => handleDownload(selectedImage)} style={{ marginRight: '8px',padding:"5px",backgroundColor:"#0073CF",color:"white",border:"none"}}>Complete Open</button>
+              <button onClick={() => setSelectedImage(null)} style={{ marginRight: '8px',padding:"5px",backgroundColor:"black",color:"white",border:"none" }}>Cancel</button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 };
+
+
 
 const CleamRequestList = () => {
   const [cleamRequests, setCleamRequests] = useState([]);
@@ -77,7 +100,9 @@ const CleamRequestList = () => {
   useEffect(() => {
     const fetchCleamRequests = async () => {
       try {
-        let response = await fetch(`https://jivithealthcare.in/api/adminCleamRequests`, {
+        // let response = await fetch(`https://jivithealthcare.in/api/adminCleamRequests`, {
+         let response = await fetch(`http://localhost:8080/api/adminCleamRequests`, {
+
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -172,34 +197,34 @@ const handleCloseModal = () => {
       <table border="1">
         <thead>
           <tr>
-            <th>Sr.No</th>
-            <th>Hospital Name</th>
-            <th>Patient Name</th>
-            <th>Dignousis</th>
-            <th>DOA</th>
-            <th>Amount</th>
-            <th>Health Card ID</th>
-            <th>Status</th>
-            <th>Action</th>
+            <th className='th'>Sr.No</th>
+            <th className='th'>Hospital Name</th>
+            <th className='th'>Patient Name</th>
+            <th className='th'>Dignousis</th>
+            <th className='th'>DOA</th>
+            <th className='th'>Amount</th>
+            <th className='th'>Health Card ID</th>
+            <th className='th'>Status</th>
+            <th className='th'>Action</th>
           </tr>
         </thead> 
         <tbody>
           {cleamRequests.length > 0 ? (
             cleamRequests.map((request,ind) => (
               <tr key={request.id}>
-                <td>{ind}</td>
-                <td>{request.hospital?.hospitalName}</td>
-                <td>{request.patientName}</td>
-                <td>{request.provisionalDiagnosis}</td>
-                <td> {new Date(request.dateOfAdmission).toLocaleDateString('en-GB', {
+                <td className='td'>{ind}</td>
+                <td className='td'>{request.hospital?.hospitalName}</td>
+                <td className='td'>{request.patientName}</td>
+                <td className='td'>{request.provisionalDiagnosis}</td>
+                <td className='td'> {new Date(request.dateOfAdmission).toLocaleDateString('en-GB', {
                                         day: '2-digit',
                                         month: '2-digit',
                                         year: 'numeric',
                                     })} </td> 
-                <td>{request.totalExpenseHospitalization}</td>
-                <td>{request.healthCardNo}</td>
-                <td>{request.status}</td>
-                <td>
+                <td className='td'>{request.totalExpenseHospitalization}</td>
+                <td className='td'>{request.healthCardNo}</td>
+                <td className='td'>{request.status}</td>
+                <td className='td'>
                   <button
                     onClick={() => updateStatus(request.id, 'Authorized')}
                     style={{ margin: '1px', backgroundColor: 'green', color: 'white', padding: '2px' }}
@@ -212,7 +237,7 @@ const handleCloseModal = () => {
                   >
                     Reject
                   </button>/
-                  <button className='td' onClick={() => handleViewClick(request)}>View</button>
+                  <button   style={{ margin: '1px', backgroundColor: '#0073CF', color: 'white', padding: '2px' }} onClick={() => handleViewClick(request)}>View</button>
                 </td>
               </tr>
             ))

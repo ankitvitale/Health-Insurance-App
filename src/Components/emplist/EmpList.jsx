@@ -15,7 +15,7 @@ function App() {
         async function getData() {
 
             try {
-                let url = `https://jivithealthcare.in/api/benificiaries`;
+                let url = `http://localhost:8080/api/benificiaries`;
                 // let url = `http://localhost:8080/benificiaries`;
 
                 let response = await fetch(url, {
@@ -112,35 +112,35 @@ function App() {
                     <table>
                         <thead>
                             <tr>
-                                <th>CardNo</th>
-                                <th>Full Name</th>
-                                <th>Phone Number</th>
-                                <th>Date of Joining</th>
-                                <th>Date of Retirement</th>
-                                <th>Aadhar No</th>
-                                <th>Department Name</th>
-                                <th>Department Location</th>
-                                <th>Action</th>
-                                <th>Create card</th>
+                                <th  className='th'>CardNo</th>
+                                <th className='th'>Full Name</th>
+                                <th className='th'>Phone Number</th>
+                                <th className='th'>Date of Joining</th>
+                                <th className='th'>Date of Retirement</th>
+                                <th className='th'>Aadhar No</th>
+                                <th className='th'>Department Name</th>
+                                <th className='th'>Department Location</th>
+                                <th className='th'>Action</th>
+                                <th className='th'>Create card</th>
                             </tr>
                         </thead>
                         <tbody>
                             {currentItems.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.cardNo}</td>
-                                    <td>{item.fullName}</td>
-                                    <td>{item.phoneNumber}</td>
-                                    <td>{new Date(item.dateOfJoining).toLocaleDateString()}</td>
-                                    <td>{new Date(item.dateOfRetirement).toLocaleDateString()}</td>
-                                    <td>{item.aadharNo}</td>
-                                    <td>{item.departmentName}</td>
-                                    <td>{item.departmentLocation}</td>
-                                    <td>
-                                        <button className='td' onClick={() => updateStatus(item.id)}>Edit</button>
-                                        <button className='td' onClick={() => deleteData(item.id)}>Delete</button>
+                                    <td className='td'>{item.cardNo}</td>
+                                    <td className='td'>{item.fullName}</td>
+                                    <td className='td'>{item.phoneNumber}</td>
+                                    <td className='td'>{new Date(item.dateOfJoining).toLocaleDateString()}</td>
+                                    <td className='td'>{new Date(item.dateOfRetirement).toLocaleDateString()}</td>
+                                    <td className='td'>{item.aadharNo}</td>
+                                    <td className='td'>{item.departmentName}</td>
+                                    <td className='td'>{item.departmentLocation}</td>
+                                    <td className='td'>
+                                        <button style={{padding:"5px",backgroundColor:"green",color:"white",border:"none"}} onClick={() => updateStatus(item.id)}>Edit</button>
+                                        <button style={{padding:"5px",backgroundColor:"red",color:"white",border:"none"}} onClick={() => deleteData(item.id)}>Delete</button>
                                     </td>
-                                    <td>
-                                        <button className='td' onClick={() => cardId(item.id)}>Show Card</button>
+                                    <td className='td'>
+                                        <button style={{padding:"5px",backgroundColor:"#0073CF",color:"white",border:"none"}} onClick={() => cardId(item.id)}>Show Card</button>
                                     </td>
                                 </tr>
                             ))}
