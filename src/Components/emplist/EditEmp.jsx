@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 
 function EditBeneficiary() {
     const { id } = useParams(); 
@@ -31,7 +32,7 @@ function EditBeneficiary() {
     useEffect(() => {
         async function fetchBeneficiary() {
             try {
-                let url = `https://jivithealthcare.in/api/benificiaries/${id}`;
+                let url = `${BASE_URL}/benificiaries/${id}`;
                 let response = await fetch(url, {
                     method: 'GET',
                     headers: {
@@ -94,7 +95,7 @@ function EditBeneficiary() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         try {
-            let url = `https://jivithealthcare.in/api/updateBenificiary/${id}`;
+            let url = `${BASE_URL}/updateBenificiary/${id}`;
             let response = await fetch(url, {
                 method: 'PUT',
                 headers: {

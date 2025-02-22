@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './HospitalComponent.css';
+import { BASE_URL } from '../../config';
 
 const HospitalComponent = () => {
   const [hospitalData, setHospitalData] = useState({
@@ -22,7 +23,7 @@ const HospitalComponent = () => {
     remark: ''
   });
 
-  let url = `https://jivithealthcare.in/api/addHospital`
+  let url = `${BASE_URL}/addHospital`
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -37,7 +38,7 @@ const HospitalComponent = () => {
     e.preventDefault();
     
     try { 
-      const response = await fetch(`https://jivithealthcare.in/api/addHospital`, {
+      const response = await fetch(`${BASE_URL}/addHospital`, {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json',

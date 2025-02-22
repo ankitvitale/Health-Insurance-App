@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import './Cform.css';
+import { BASE_URL } from "../../config";
 
 const HealthCheckupForm = () => {
   const [hospital, setHospital] = useState("");
@@ -31,7 +32,7 @@ const HealthCheckupForm = () => {
 
     try {
       const response = await fetch(
-         `https://jivithealthcare.in/api/healthCheckupReqest`,
+         `${BASE_URL}/healthCheckupReqest`,
         //`http://localhost:8080/healthCheckupReqest`,
 
         {

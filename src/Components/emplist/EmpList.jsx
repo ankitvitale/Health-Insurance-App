@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import './EmpList.css';
 import { Link, useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 
 function App() {
     const [data, setData] = useState([]);
@@ -15,7 +16,7 @@ function App() {
         async function getData() {
 
             try {
-                let url = `http://localhost:8080/api/benificiaries`;
+                let url = `${BASE_URL}/benificiaries`;
                 // let url = `http://localhost:8080/benificiaries`;
 
                 let response = await fetch(url, {
@@ -52,7 +53,7 @@ function App() {
     const deleteData = async (id) => {
         try {
             // const url = `http://localhost:8080/deleteBeneficiary/${id}`;
-            const url = `https://jivithealthcare.in/api/deleteBeneficiary/${id}`;
+            const url = `${BASE_URL}/deleteBeneficiary/${id}`;
 
             const response = await fetch(url, {
                 method: 'DELETE',

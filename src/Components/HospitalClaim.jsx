@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { BASE_URL } from '../config';
 
 const ClaimDetailModal = ({ claim, onClose }) => {
   const [selectedImage, setSelectedImage] = useState(null);
@@ -45,8 +46,8 @@ const ClaimDetailModal = ({ claim, onClose }) => {
           <div className='discharge' style={{ display: 'flex', flexWrap: 'wrap', gap: '20px', justifyContent: 'center' }}>
             <p><strong>Documents:</strong></p>
             {[
-              { label: 'Aadhar', src: `https://82.112.237.134:8080/${claim.aadharCard}` },
-              { label: 'Promissory', src: `https://jivithealthcare.in/api/${claim.promissoryNote}` },
+              { label: 'Aadhar', src: `${BASE_URL}/${claim.aadharCard}` },
+              { label: 'Promissory', src: `${BASE_URL}/${claim.promissoryNote}` },
               { label: 'Jivat Card', src: claim.jivatHealthCard },
               { label: 'Salary Cheque', src: claim.salaryACCheque },
               { label: 'Discharge', src: claim.dischargecard },
@@ -100,8 +101,8 @@ const CleamRequestList = () => {
   useEffect(() => {
     const fetchCleamRequests = async () => {
       try {
-        // let response = await fetch(`https://jivithealthcare.in/api/adminCleamRequests`, {
-         let response = await fetch(`http://localhost:8080/api/adminCleamRequests`, {
+        // let response = await fetch(`${BASE_URL}/adminCleamRequests`, {
+         let response = await fetch(`${BASE_URL}/adminCleamRequests`, {
 
           method: 'GET',
           headers: {
@@ -127,7 +128,7 @@ const CleamRequestList = () => {
 
   const updateStatus = async (id, status) => {
     try {
-      let url = `https://jivithealthcare.in/api/updateStatusAuthorized/${id}`;
+      let url = `${BASE_URL}/updateStatusAuthorized/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {
@@ -154,7 +155,7 @@ const CleamRequestList = () => {
 
   const updateStatusreject = async (id, status) => {
     try {
-      let url = `https://jivithealthcare.in/api/updateStatusRejected/${id}`;
+      let url = `${BASE_URL}/updateStatusRejected/${id}`;
       let response = await fetch(url, {
         method: 'PUT',
         headers: {

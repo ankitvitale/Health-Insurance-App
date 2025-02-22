@@ -3,7 +3,8 @@ import './Dashboard.css'
 import authorize from '../../Assets/admin/authorize.svg'
 import pending from '../../Assets/admin/pending.svg'
 import Reject from '../../Assets/admin/reject.svg'
-import total from '../../Assets/admin/total.svg'
+import total from '../../Assets/admin/total.svg';
+import { BASE_URL } from '../../config'
 function Dashboard() {
   const [data, setData] = useState([]);
   const [emp, setEmp] = useState([]);
@@ -17,7 +18,7 @@ function Dashboard() {
     const fetchCleamRequests = async () => {
       const token = localStorage.getItem('token');
       try {
-        let response = await fetch(`https://jivithealthcare.in/api/adminHeathCheckupList`, {
+        let response = await fetch(`${BASE_URL}/adminHeathCheckupList`, {
           method: 'GET',
           headers: {
             'Authorization': `Bearer ${token}`,
@@ -50,7 +51,7 @@ function Dashboard() {
     async function getData() {
         const token = localStorage.getItem('token');
         try {
-            let url = `https://jivithealthcare.in/api/benificiaries`;
+            let url = `${BASE_URL}/benificiaries`;
 
             let response = await fetch(url, {
                 method: 'GET',

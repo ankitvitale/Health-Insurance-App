@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
+import { BASE_URL } from '../../config';
 
 const HospitalDetailModal = ({ hospital, onClose }) => {
     if (!hospital) return null;
@@ -45,7 +46,7 @@ const navigate = useNavigate()
         async function getData() {
             const token = localStorage.getItem('token');
             try {
-                let url = `https://jivithealthcare.in/api/AllhospitalsList`;
+                let url = `${BASE_URL}/AllhospitalsList`;
                 
                 let response = await fetch(url, {
                     method: 'GET',
@@ -77,7 +78,7 @@ const navigate = useNavigate()
     const handleDeleteClick = async(id) =>{
         const token = localStorage.getItem('token');
          try {
-         let url = `https://jivithealthcare.in/api/deleteHospital/${id}`
+         let url = `${BASE_URL}/deleteHospital/${id}`
            
 
             const response = await fetch(url, {

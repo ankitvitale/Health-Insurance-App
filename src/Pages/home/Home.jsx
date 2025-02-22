@@ -31,6 +31,7 @@ import 'aos/dist/aos.css';
 import Footer from '../../Components/footer/Footer';
 import ScrollToTop from '../../Scroll';
 import { apiUrl } from '../../Components/shared';
+import { BASE_URL } from '../../config';
 function Home() {
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [formData, setFormData] = useState({
@@ -56,7 +57,7 @@ function Home() {
             console.log('Form submitted:', formData);
             
             // Make a POST request using fetch
-            const response = await fetch(`https://jivithealthcare.in/api/appointment`, {
+            const response = await fetch(`${BASE_URL}/appointment`, {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

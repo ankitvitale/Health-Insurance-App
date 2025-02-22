@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import './EmployeeForm.css';
+import { BASE_URL } from '../../config';
+import { IconBase } from 'react-icons/lib';
 
 const EmpForm = () => {
   const [formData, setFormData] = useState({
@@ -81,7 +83,7 @@ const EmpForm = () => {
     console.log('Form Data:', formData);
 
     try {
-      const response = await fetch(`https://jivithealthcare.in/api/addBenificiary`, {
+      const response = await fetch(`${BASE_URL}/addBenificiary`, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

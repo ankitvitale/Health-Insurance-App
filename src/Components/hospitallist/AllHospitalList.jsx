@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from 'react';
 import { jsPDF } from 'jspdf';
 import html2canvas from 'html2canvas';
+import { BASE_URL } from '../../config';
 
 function AllHospitalList() {
     const [data, setData] = useState([]);
@@ -9,7 +10,7 @@ function AllHospitalList() {
     useEffect(() => {
         async function getData() {
             try {
-                let url = `https://jivithealthcare.in/api/AllhospitalsList`;
+                let url = `${BASE_URL}/AllhospitalsList`;
 
                 let response = await fetch(url, {
                     method: 'GET',
