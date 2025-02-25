@@ -101,7 +101,7 @@ const CleamRequestList = () => {
   useEffect(() => {
     const fetchCleamRequests = async () => {
       try {
-        // let response = await fetch(`${BASE_URL}/adminCleamRequests`, {
+      
          let response = await fetch(`${BASE_URL}/adminCleamRequests`, {
 
           method: 'GET',
