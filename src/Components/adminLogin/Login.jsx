@@ -22,7 +22,7 @@ let navigate = useNavigate()
     e.preventDefault();
 
     try {
-      // const response = await fetch(`http://localhost:8080/api/auth/login`, {
+    
         const response = await fetch(`${BASE_URL}/auth/login`, {
 
         method: 'POST',
