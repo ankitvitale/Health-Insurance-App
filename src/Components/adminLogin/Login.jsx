@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 
-const BASE_URL = process.env.REACT_APP_BASE_URL; 
+
 
 const Login = () => {
   const [formData, setFormData] = useState({
@@ -23,7 +23,7 @@ let navigate = useNavigate()
     e.preventDefault();
   
     try {
-      const response = await fetch(`${BASE_URL}/auth/login`, { // ✅ Remove the duplicate 'const response'
+      const response = await fetch(`https://api.jivithealthcare.in/api/auth/login`, { // ✅ Remove the duplicate 'const response'
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
