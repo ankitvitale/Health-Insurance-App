@@ -113,25 +113,25 @@ const navigate = useNavigate()
                     <table>
                         <thead>
                             <tr>
-                                <th>Hospital Name</th>
-                                <th>Phone Number</th>
-                                <th>Doctor Name</th>
-                                <th>Speciality</th>
-                                <th>Email</th>
-                                <th>City</th>
-                                <th>Action</th>
+                                <th className='th' >Hospital Name</th>
+                                <th className='th'>Phone Number</th>
+                                <th className='th'>Doctor Name</th>
+                                <th className='th'>Speciality</th>
+                                <th className='th'>Email</th>
+                                <th className='th'>City</th>
+                                <th className='th'>Action</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.hospitalName}</td>
-                                    <td>{item.mobileNo}</td>
-                                    <td>{item.doctorName}</td>
-                                    <td>{item.speciality}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.tahsil}</td>
-                                    <td>
+                                    <td className='td'>{item.hospitalName}</td>
+                                    <td className='td'>{item.mobileNo}</td>
+                                    <td className='td'>{item.doctorName}</td>
+                                    <td className='td'>{item.speciality}</td>
+                                    <td className='td'>{item.email}</td>
+                                    <td className='td'>{item.tahsil}</td>
+                                    <td className='td'>
                                         <button className='td' onClick={() => handleViewClick(item)}>View</button>
                                         <button className='td' onClick={() => handleDeleteClick(item.id)}>Delete</button>
                                     </td>

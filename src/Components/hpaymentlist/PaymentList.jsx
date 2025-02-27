@@ -62,23 +62,23 @@ console.log(data)
         <div className="table-container">
             <table>
                     <tr>
-                        <th>Hospital Name</th>                  
-                        <th>Emp Name</th>
-                        <th>Patient Name</th>
-                        <th>Bank Name</th>
-                        <th>PayMentMode</th>                     
-                        <th>Amount</th>
+                        <th className='th'>Hospital Name</th>                  
+                        <th className='th'>Emp Name</th>
+                        <th className='th'>Patient Name</th>
+                        <th className='th'>Bank Name</th>
+                        <th className='th'>PayMentMode</th>                     
+                        <th className='th'>Amount</th>
                         
                     </tr>
                     {data.map((item, index) => (
                         <tr key={index}>
-                            <td>{item.hospitalName}</td>
-                            <td>{item.employeeName}</td>
-                            <td>{item.patientName}</td>
-                            <td>{item.bankName}</td>
-                            <td>{item.paymentMode}</td>
+                            <td className='td'>{item.hospitalName}</td>
+                            <td className='td'>{item.employeeName}</td>
+                            <td className='td'>{item.patientName}</td>
+                            <td className='td'>{item.bankName}</td>
+                            <td className='td'>{item.paymentMode}</td>
                             
-                            <td>{item.amount}</td>
+                            <td className='td'>{item.amount}</td>
                            
                         </tr>
                     ))}

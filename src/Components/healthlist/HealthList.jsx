@@ -156,27 +156,27 @@ const HealthList = () => {
     <div className='container'>
       <div className="table-container">
         <table>
-          <tr>
-            <th>ID</th>
-            <th>CardNo</th>
-            <th>Patient Name</th>
-            <th>Employee Name</th>
-            <th>Location</th>
-            <th>Hospital</th>
-            <th>Status</th>
-            <th>Action</th>
+          <tr >
+            <th className='th'>ID</th>
+            <th className='th'>CardNo</th>
+            <th className='th'>Patient Name</th>
+            <th className='th'>Employee Name</th>
+            <th className='th'>Location</th>
+            <th className='th'>Hospital</th>
+            <th className='th'>Status</th>
+            <th className='th'>Action</th>
           </tr>
           {cleamRequests.length > 0 ? (
             cleamRequests.map((request) => (
               <tr key={request.id}>
-                <td>{request.id}</td>
-                <td>{request.cardNo}</td>
-                <td>{request.pesentName}</td>
-                <td>{request.employeeName}</td>
-                <td>{request.location}</td>
-                <td>{request.hospital}</td>
-                <td>{request.status}</td>
-                <td>
+                <td className='td'>{request.id}</td>
+                <td className='td'>{request.cardNo}</td>
+                <td className='td'>{request.pesentName}</td>
+                <td className='td'>{request.employeeName}</td>
+                <td className='td'>{request.location}</td>
+                <td className='td'>{request.hospital}</td>
+                <td className='td'>{request.status}</td>
+                <td className='td'>
                   <button
                     style={{
                       margin: '1px',

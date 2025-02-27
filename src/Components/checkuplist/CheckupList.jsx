@@ -86,27 +86,27 @@ function CheckupList() {
                     <table>
                         <thead>
                             <tr>
-                                <th>Sr.No</th>
-                                <th>CardNo</th>
-                                <th>Full Name</th>
-                                <th>Pesent Name</th>
-                                <th>Hospital</th>
-                                <th>Location</th>
-                                <th>Department Name</th>
-                                <th>Department Location</th>
+                                <th  className='th'>Sr.No</th>
+                                <th  className='th'>CardNo</th>
+                                <th  className='th'>Full Name</th>
+                                <th  className='th'>Pesent Name</th>
+                                <th  className='th'>Hospital</th>
+                                <th  className='th'>Location</th>
+                                <th  className='th'>Department Name</th>
+                                <th  className='th'>Department Location</th>
                             </tr>
                         </thead>
                         <tbody>
                             {currentRows.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.id}</td>
-                                    <td>{item.cardNo}</td>
-                                    <td>{item.employeeName}</td>
-                                    <td>{item.pesentName}</td>
-                                    <td>{item.hospital}</td>
-                                    <td>{item.location}</td>
-                                    <td>{item.depermentName}</td>
-                                    <td>{item.status}</td>
+                                    <td className='td'>{item.id}</td>
+                                    <td className='td'>{item.cardNo}</td>
+                                    <td className='td'>{item.employeeName}</td>
+                                    <td className='td'>{item.pesentName}</td>
+                                    <td className='td'>{item.hospital}</td>
+                                    <td className='td'>{item.location}</td>
+                                    <td className='td'>{item.depermentName}</td>
+                                    <td className='td'>{item.status}</td>
                                 </tr>
                             ))}
                         </tbody>
