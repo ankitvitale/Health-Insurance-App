@@ -51,26 +51,16 @@ function Card() {
         const MAX_WIDTH = 200;
         const MAX_HEIGHT = 200;
 
-        html2canvas(printRef.current, { scale: 2 }).then((canvas) => {
-            const imgData = canvas.toDataURL('image/png');
-            const pdf = new jsPDF();
-
-            const imgWidth = canvas.width;
-            const imgHeight = canvas.height;
-
-            let scale = Math.min(MAX_WIDTH / imgWidth, MAX_HEIGHT / imgHeight);
-            let newWidth = imgWidth * scale;
-            let newHeight = imgHeight * scale;
-
-            const pdfWidth = pdf.internal.pageSize.getWidth();
-            const pdfHeight = pdf.internal.pageSize.getHeight();
-
-            const xPos = (pdfWidth - newWidth) / 2;
-            const yPos = (pdfHeight - newHeight) / 2;
-
-
-            pdf.addImage(imgData, 'PNG', 5, -10, 200, newHeight);
-            pdf.save(`${data.fullName}.pdf`);
+        html2canvas(printRef.current, {  
+            scale: 2,  
+            useCORS: true,  
+            backgroundColor: null, // Ensures transparent background  
+            removeContainer: true,  
+        }).then((canvas) => {  
+            const imgData = canvas.toDataURL('image/png');  
+            const pdf = new jsPDF();  
+            pdf.addImage(imgData, 'PNG', 5, -10, 200, canvas.height * (200 / canvas.width));  
+            pdf.save(`${data.fullName}.pdf`);  
         });
     };
 

@@ -233,4 +233,8 @@
   .print-btn {
     display: none;
   }
+  .unwanted-line {
+  display: none;
+  background-color: #eaeff3;
+}
 }
