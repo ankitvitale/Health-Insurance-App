@@ -1,2 +1,2 @@
-export const BASE_URL = process.env.REACT_APP_BASE_URL || "https://api.jivithealthcare.in/api"; 
+export const BASE_URL = process.env.REACT_APP_BASE_URL || "http://82.29.161.171:8080/api"; 
  
