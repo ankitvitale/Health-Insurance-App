@@ -1,5 +1,5 @@
 .card {
-  width: 40%;
+  width: 820px;
   height: 380px;
   border: 1px solid #ccc;
   overflow: hidden;
@@ -58,10 +58,10 @@ p b {
   white-space: nowrap; 
 
 }
-p span {
+.card-info p span {
   flex: 2;
   text-align: left;
-  padding-left: 2px;
+  padding-left:4px;
   font-weight: bold;
   white-space: nowrap;
 
@@ -71,7 +71,7 @@ p span {
 .info-right {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  
   line-height: 22px;
   position: relative;
 }
@@ -79,7 +79,7 @@ p span {
 .info-right p {
   font-size: 10px;
   font-weight: bold;
-  margin-right: 9px;
+  margin-right: 5px;
   margin-top: -4px;
  
 }
@@ -103,7 +103,8 @@ p span {
 .instructions ol {
   padding-left: 20px;
   text-align: left;
-  font-size: 8px;
+  font-size: 10px;
+  padding-top: 1px;
   line-height: 10px;
 }
 
@@ -112,11 +113,11 @@ p span {
   border-collapse: collapse;
 }
 
-.dependents th,
-.dependents td {
+.dependents th, .dependents td {
   border: 1px solid #000000;
   text-align: center;
-  font-size: 10px;
+  font-size: 9px;
+  padding: 1px;
 }
 
 .footerp {
@@ -126,91 +127,14 @@ p span {
 
 .footerp p {
   font-size: 11px;
+  color: #003196;
+  font-weight: bold;
 }
 
 .mobile-warning {
   display: none;
 }
 
-@media only screen and (min-width: 1900px) and (max-width: 2600px) {
-  .card {
-    width: 65%;
-   height: 50%;
-  }
-  .card-front {
-    width: 38%;
-    height: 300px;
-  }
-  .card-back {
-    width: 38%;
-    height: 300px;
-  }
-  .card-footer {
-    bottom: 0;
-  }
-}
-
-@media only screen and (min-width: 1550px) and (max-width: 1900px) {
-  .card {
-    width: 60%;
-  }
-  .card-front {
-    width: 50%;
-    height: 261px;
-  }
-  .card-back {
-    width: 50%;
-    height: 261px;
-  }
-  .card-footer {
-    bottom: 53px;
-  }
-}
-
-@media only screen and (min-width:1460px) and (max-width: 1550px) {
-  .card {
-    width: 65%;
-  }
-  .card-front {
-    width: 50%;
-  }
-  .card-back {
-    width: 50%;
-  }
-}
-
-@media (max-width: 1460px) {
-  .card {
-    width: 65%;
-  }
-}
-
-@media (max-width: 1340px) {
-  .card {
-    width: 70%;
-  }
-}
-
-@media (max-width: 1200px) {
-  .card {
-    width: 85%;
-  }
-}
-
-@media (max-width: 1100px) {
-  .card {
-    width: 92%;
-  }
-}
-
-@media (max-width: 960px), (max-width: 770px) {
-  .card {
-    display: none;
-  }
-  .mobile-warning {
-    display: block;
-  }
-}
 
 .print-btn {
   margin-top: 50px;

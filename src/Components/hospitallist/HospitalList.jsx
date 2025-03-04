@@ -24,14 +24,10 @@ const HospitalDetailModal = ({ hospital, onClose }) => {
                     <p><strong>Account Number:</strong> {hospital.accountNumber}</p>
                     <p><strong>IFSC Code:</strong> {hospital.ifscCode}</p>
                     <p><strong>Account Name:</strong> {hospital.accountName}</p>
-                    <p><strong>OTP:</strong> {hospital.otp}</p>
+                    
                     <p><strong>Pincode:</strong> {hospital.pincode}</p>
                     <p><strong>Remark:</strong> {hospital.remark}</p>
-                    <p><strong>Expiration Time:</strong>  {new Date(hospital.expirationTime).toLocaleDateString('en-GB', {
-                                        day: '2-digit',
-                                        month: '2-digit',
-                                        year: 'numeric',
-                                    })} </p>
+                   
                 </div>
             </div>
         </div>

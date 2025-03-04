@@ -36,6 +36,7 @@ const ClaimRequestForm = () => {
   const [parishitdocument, setParishitdocument] = useState(null);
   const [cutumnbpramanpatra, setCutumnbpramanpatra] = useState(null);
   const [status, setStatus] = useState("Pending");
+  const [loading, setLoading] = useState(false);
 
 
 
@@ -60,6 +61,7 @@ const ClaimRequestForm = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
 
     const formData = new FormData();
     formData.append("employeeName", employeeName);
@@ -116,10 +118,13 @@ const ClaimRequestForm = () => {
       }
 
       const data = await response.json();
-      console.log("Claim request submitted:", data);
+      alert(`Claim request submitted successfully!`);
       resetForm();
     } catch (error) {
       console.error("Error submitting request:", error);
+      alert("Error submitting request. Please try again.");
+    }finally {
+      setLoading(false);
     }
   };
 
@@ -476,7 +481,9 @@ const ClaimRequestForm = () => {
             />
           </div> 
         
-          <button type="submit">Submit Claim Request</button>
+          <button type="submit" disabled={loading}>
+          {loading ? "Submitting..." : "Submit Claim Request"}
+        </button>
         </div>
       </form>
     </>

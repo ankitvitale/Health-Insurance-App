@@ -97,20 +97,20 @@ function Card() {
 
                     <div className="card-info">
                         <div className="info-left">
-                            <p><b>CARD NO.:</b> <span className="card-no" style={{color:"red"}}>{data.cardNo}</span></p>
-                            <p><b>EMP NAME:</b> <span>{data.fullName}</span></p>
-                            <p><b>DOB:</b> <span>{formattedDate}</span></p>
-                            <p><b>DEPT NAME:</b> <span>{data.departmentName}</span></p>
-                            <p><b>LOCATION:</b> <span>{data.departmentLocation}</span></p>
-                            <p><b>DESIGNATION:</b> <span>{data.designation}</span></p>
+                            <p><b>CARD NO</b>  <span className="card-no">:<span  style={{color:"red",fontWeight:"bold"}}>{data.cardNo}</span></span></p>
+                            <p><b>EMP NAME</b> <span  >:<span>{data.fullName}</span></span></p>
+                            <p><b>DOB</b>  <span>:<span>{formattedDate}</span></span></p>
+                            <p><b>DEPT NAME</b>  <span>:<span>{data.departmentName}</span></span></p>
+                            <p><b>LOCATION</b> <span>:<span>{data.departmentLocation}</span></span></p>
+                            <p><b>DESIGNATION</b> <span>:<span>{data.designation}</span></span></p>
                         </div>
                         <div className="info-right">
                             <div className="card-header">
                                 <img src={logo} alt="Jivit Healthcare" className="card-logo" />
                             </div>
-                            <p><b>GENDER:</b> <span>{data.gender || "Male"}</span></p>
-                            <p><b>DOI:</b> <span>{formatedoi}</span></p>
-                            <p><b>DOR:</b> <span>{formatedor}</span></p>
+                            <p><b >GENDER</b> <span>:<span>{data.gender || "Male"}</span></span></p>
+                            <p><b>DOI</b> <span>:<span>{formatedoi}</span></span></p>
+                            <p><b>DOR</b> <span>:<span>{formatedor}</span></span></p>
                         </div>
                     </div>
 
@@ -132,9 +132,11 @@ function Card() {
                         <h3 style={
                             {
                                 backgroundColor: "#1587CE",
-                                color: "white",
-                                fontSize: "15px",
+                                color:"whitesmoke",
+                                fontSize: "10px",
                                 textAlign: "center",
+                                padding:"2px 0px",
+                                fontFamily:"sans-serif"
                             }
                         }>Instructions</h3>
                         <ol>
@@ -157,16 +159,19 @@ function Card() {
                         <h3 style={
                             {
                                 backgroundColor: "#1587CE",
-                                color: "white",
-                                fontSize: "15px",
+                                color:"whitesmoke",
+                                fontSize: "10px",
                                 textAlign: "center",
+                                padding:"2px 0px",
+                                fontFamily:"sans-serif",
+                                marginTop:"10px"
 
                             }
                         }>Dependents</h3>
                         <table classna>
                             <thead>
                                 <tr >
-                                    <th >Sr.No</th>
+                                    {/* <th >Sr.No</th> */}
                                     <th>Name</th>
                                     <th>Gender</th>
                                     <th>Age</th>
@@ -177,7 +182,7 @@ function Card() {
                                 {
                                     family.map((e, i) => (
                                         <tr key={i}>
-                                            <td>{i + 1}</td>
+                                            {/* <td>{i + 1}</td> */}
                                             <td>{e.name}</td>
                                             <td>{e.gender}</td>
                                             <td>{e.age}</td>
