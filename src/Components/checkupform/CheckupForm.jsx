@@ -111,7 +111,7 @@ setStatus('')
             />
           </div>
           <div>
-            <label>Present Name:</label>
+            <label>Patient Name:</label>
             <input
               type="text"
               value={pesentName}

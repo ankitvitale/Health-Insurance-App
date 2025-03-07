@@ -149,7 +149,7 @@ const HealthList = () => {
     setSelectedClaim(null); 
   };
 
-  console.log(cleamRequests)
+  
 
   return (
     <>

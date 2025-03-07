@@ -58,7 +58,8 @@ const navigate = useNavigate()
                 
                 let emp = await response.json();
                 setData(emp);
-                console.log(emp);
+                
+                
             } catch (error) {
                 console.error('Error fetching data:', error);
             }

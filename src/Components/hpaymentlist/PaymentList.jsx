@@ -23,7 +23,7 @@ function PaymentList() {
                 
                 let emp = await response.json();
                 setData(emp);
-                console.log(emp);
+                
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -31,7 +31,7 @@ function PaymentList() {
         
         getData();
     }, []);
-console.log(data)
+
     function view(id){
         console.log(id)
     }

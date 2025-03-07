@@ -33,7 +33,7 @@ const AppointmentTable = () => {
         fetchAppointments();
     }, []); 
 
-console.log(process.env.REACT_APP_API_KEY)
+
     const token = localStorage.getItem('token');
 
     const updateStatus = async (id, status) => {

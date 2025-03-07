@@ -25,7 +25,7 @@ function AllHospitalList() {
 
                 let emp = await response.json();
                 setData(emp);
-                console.log(emp);
+               
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -63,22 +63,22 @@ function AllHospitalList() {
                         <thead>
                             <tr>
                                 <th>Hospital Name</th>
-                                <th>Phone Number</th>
+                               
                                 <th>Doctor Name</th>
                                 <th>Speciality</th>
-                                <th>Email</th>
+                              
                                 <th>City</th>
                             </tr>
                         </thead>
                         <tbody>
                             {data.map((item, index) => (
                                 <tr key={index}>
-                                    <td>{item.hospitalName}</td>
-                                    <td>{item.mobileNo}</td>
-                                    <td>{item.doctorName}</td>
-                                    <td>{item.speciality}</td>
-                                    <td>{item.email}</td>
-                                    <td>{item.tahsil}</td>
+                                    <td style={{textAlign:"center"}}>{item.hospitalName}</td>
+                                  
+                                    <td style={{textAlign:"center"}}>{item.doctorName}</td>
+                                    <td style={{textAlign:"center"}}>{item.speciality}</td>
+                                   
+                                    <td style={{textAlign:"center"}}>{item.tahsil}</td>
                                 </tr>
                             ))}
                         </tbody>

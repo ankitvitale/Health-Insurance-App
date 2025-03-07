@@ -3,7 +3,7 @@ import { jsPDF } from 'jspdf';
 import 'jspdf-autotable';
 import { useParams } from 'react-router-dom';
 import { BASE_URL } from '../../config';
-import signatureImage from '../../Assets/card/digital.png';
+import Signature from '../../Assets/card/digital.png'
 import './pdf1.css';
 
 const Approvel = () => {
@@ -82,8 +82,9 @@ const Approvel = () => {
     doc.text('Remark:', 10, doc.autoTable.previous.finalY + 10);
     doc.text(remark, 30, 180);
 
-    doc.addImage(signatureImage, 'PNG', 10, doc.autoTable.previous.finalY + 30, 40, 20);
-    doc.text('Approved by: Mr. Mayur Sapkale', 10, doc.autoTable.previous.finalY + 60);
+    doc.addImage(Signature, 'PNG', 10, doc.autoTable.previous.finalY + 30, 40, 20);
+    doc.text('Approved by: Authorization Team ', 10, doc.autoTable.previous.finalY + 60);
+    doc.text('(Jivit Health Care & Medical Services Pvt. Ltd)', 10, doc.autoTable.previous.finalY + 70);
  ;
 
     doc.save(`${data.patientName}.pdf`);
@@ -121,7 +122,7 @@ const Approvel = () => {
       <p><strong>Remark:</strong> Case is covered for <strong>{data.planOfTreatmentSurgical}</strong> management bill will be settled as per agreed MOU rate</p>
 
       <div className="footer">
-        <p><strong>Approved by:</strong> Mr. Mayur Sapkale</p>
+        <p><strong>Approved by:</strong> Authorization Team </p>
         <p>Signature Of Patient/Employee:</p>
         <p>_________________________</p>
         <p>This document is a copyright of JIVIT HEALTHCARE & MEDICAL SERVICES PVT. LTD. and is confidential.</p>

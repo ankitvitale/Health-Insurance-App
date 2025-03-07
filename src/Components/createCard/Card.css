@@ -14,7 +14,7 @@
 .card-side {}
 
 .card-front {
-  width: 50%;
+  width: 45%;
   background-color: #eaeff3;
   height: 232px;
 }
@@ -54,7 +54,7 @@ p b {
   align-items: center;
   width: 100%;
  
-  font-size: 10px;
+  font-size: 11px;
   white-space: nowrap; 
 
 }
@@ -77,7 +77,7 @@ p b {
 }
 
 .info-right p {
-  font-size: 10px;
+  font-size: 11px;
   font-weight: bold;
   margin-right: 5px;
   margin-top: -4px;
@@ -91,12 +91,12 @@ p b {
   font-size: 14px;
   color: #555;
   position: relative;
-  bottom: 83px;
+  bottom: 88px;
 }
 
 .card-back {
   background-color: #CBFEFF;
-  width: 50%;
+  width: 45%;
   height: 232px;
 }
 
@@ -105,7 +105,8 @@ p b {
   text-align: left;
   font-size: 10px;
   padding-top: 1px;
-  line-height: 10px;
+  line-height: 11px;
+  font-family: sans-serif;
 }
 
 .dependents table {
@@ -116,8 +117,9 @@ p b {
 .dependents th, .dependents td {
   border: 1px solid #000000;
   text-align: center;
+  align-items: center;
   font-size: 9px;
-  padding: 1px;
+  padding: 2px;
 }
 
 .footerp {

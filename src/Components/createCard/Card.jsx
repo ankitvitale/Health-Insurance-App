@@ -97,7 +97,7 @@ function Card() {
 
                     <div className="card-info">
                         <div className="info-left">
-                            <p><b>CARD NO</b>  <span className="card-no">:<span  style={{color:"red",fontWeight:"bold"}}>{data.cardNo}</span></span></p>
+                            <p><b>CARD NO</b>  <span className="card-no">:<span  style={{color:"red",fontWeight:"bold",fontSize:"14px"}}>{data.cardNo}</span></span></p>
                             <p><b>EMP NAME</b> <span  >:<span>{data.fullName}</span></span></p>
                             <p><b>DOB</b>  <span>:<span>{formattedDate}</span></span></p>
                             <p><b>DEPT NAME</b>  <span>:<span>{data.departmentName}</span></span></p>
@@ -115,11 +115,11 @@ function Card() {
                     </div>
 
                     <div className="card-footer">
-                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", paddingTop: "70px", justifyContent: "center", color: "white", fontSize: "8px", paddingRight: "5px" }}> <div style={{ fontSize: "11px", borderBottom: "1px solid white", margin: "2px" }}>Help Line:</div> <div >9322006819, 9307633246,</div> 9021184557, 9665450899</div>
+                        <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", paddingTop: "75px", justifyContent: "center", color: "white", fontSize: "8px", paddingRight: "5px" }}> <div style={{ fontSize: "14px", borderBottom: "1px solid white", margin: "2px",fontFamily:"sans-serif" }}>Help Line:</div> <div style={{fontSize:"11px",fontFamily:"sans-serif"}}>9322006810, 9307633246,</div> <div style={{fontSize:"11px",fontFamily:"sans-serif"}}>9021184557, 9665450999</div></div>
                         <p style={{
                             color: "white",
-                            fontSize: "8px",
-                            marginTop: "38px", padding: "5px", textAlign: "center"
+                            fontSize: "10px",
+                            marginTop: "23px", padding: "5px", textAlign: "center"
                         }}>
                             ADDRESS: PLOT NO - 61, KANCHAN NAGAR, TAL: DIST JALGAON-425001
                         </p>
@@ -133,9 +133,9 @@ function Card() {
                             {
                                 backgroundColor: "#1587CE",
                                 color:"whitesmoke",
-                                fontSize: "10px",
+                                fontSize: "13px",
                                 textAlign: "center",
-                                padding:"2px 0px",
+                                padding:"4px 0px",
                                 fontFamily:"sans-serif"
                             }
                         }>Instructions</h3>
@@ -160,18 +160,18 @@ function Card() {
                             {
                                 backgroundColor: "#1587CE",
                                 color:"whitesmoke",
-                                fontSize: "10px",
+                                fontSize: "13px",
                                 textAlign: "center",
-                                padding:"2px 0px",
+                                padding:"4px 0px",
                                 fontFamily:"sans-serif",
-                                marginTop:"10px"
+                               
 
                             }
                         }>Dependents</h3>
                         <table classna>
                             <thead>
                                 <tr >
-                                    {/* <th >Sr.No</th> */}
+                                    <th >Sr.No</th>
                                     <th>Name</th>
                                     <th>Gender</th>
                                     <th>Age</th>
@@ -182,7 +182,7 @@ function Card() {
                                 {
                                     family.map((e, i) => (
                                         <tr key={i}>
-                                            {/* <td>{i + 1}</td> */}
+                                            <td>{i + 1}</td>
                                             <td>{e.name}</td>
                                             <td>{e.gender}</td>
                                             <td>{e.age}</td>
@@ -194,7 +194,7 @@ function Card() {
                         </table>
                     </div>
                     <div className="footerp">
-                        <p>Visit us at - www.jivithealthcare.com</p>
+                        <p>Visit us at - www.jivithealthcare.in</p>
                     </div>
                 </div>
             </div >

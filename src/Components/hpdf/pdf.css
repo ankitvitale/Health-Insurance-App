@@ -1,10 +1,11 @@
 .container2 {
   padding: 20px;
   font-family: Arial, sans-serif;
-  width: 60%;
+  width: 60%; 
+align-items: center;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+
  
 
 

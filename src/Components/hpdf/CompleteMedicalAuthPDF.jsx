@@ -87,7 +87,7 @@ const CompleteMedicalAuthPDF = () => {
         </table>
       </div>
       <div className="btn-container">
-        <button onClick={handlePrint} className="print-btn">Print PDF</button>
+        <button onClick={handlePrint} className="print-btn1">Print PDF</button>
       </div>
     </div>
   );

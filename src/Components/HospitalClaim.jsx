@@ -278,7 +278,7 @@ const CleamRequestList = () => {
 
   if (loading) return <p>Loading...</p>;
   if (error) return <p>Error: {error}</p>;
-  console.log(cleamRequests);
+  
 
   const handleViewClick = (claim) => {
     setSelectedClaim(claim);

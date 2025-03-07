@@ -24,7 +24,7 @@ function Tickets() {
                 
                 let emp = await response.json();
                 setData(emp);
-                console.log(emp);
+              
             } catch (error) {
                 console.error('Error fetching data:', error);
             }
@@ -33,7 +33,7 @@ function Tickets() {
         getData();
     }, []);
 
-    console.log(data);
+  
 
     function view(id) {
         console.log(id);

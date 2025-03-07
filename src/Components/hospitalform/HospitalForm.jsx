@@ -53,7 +53,7 @@ const HospitalComponent = () => {
       }
 
       const result = await response.json();
-      console.log('Success:', result);
+      
       setHospitalData({
         hospitalName: '',
         doctorName: '',

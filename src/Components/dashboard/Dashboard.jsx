@@ -74,7 +74,7 @@ function Dashboard() {
 
     getData();
 }, []);
-console.log(emp)
+
   useEffect(() => {
     let status = emp.filter((e) => e.status === "Pending")
     let authorize = emp.filter((e) => e.status === 'Authorized')
