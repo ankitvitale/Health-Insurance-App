@@ -1,0 +1,114 @@
+.h1 {
+  text-align: center;
+  font-family: "Lato", sans-serif;
+  font-weight: 900;
+  font-size: 21px;
+}
+.dashbord {
+  width: 90%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.admin-hospital {
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+ 
+}
+.admin-hospital h5 {
+  margin-bottom: 10px;
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+}
+.requests {
+  display: flex;
+  gap: 6%;
+}
+.request {
+  height: 110px;
+  width: 200px;
+  box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.253);
+  background-color: rgb(248, 245, 245);
+  border-radius: 8px;
+  position: relative;
+  padding: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.request h4 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: .8em;
+}
+.request h6 {
+  font-family: "Lato", sans-serif;
+  font-weight: 700;
+  font-size: 18px;
+}
+.request .a {
+  color: #5acf5e;
+}
+.request .p {
+  color: #efd427;
+}
+.request .r {
+  color: #ff0d0d;
+}
+.request .t {
+  color: #fe950d;
+}
+.request p {
+  font-family: "Lato", sans-serif;
+  font-weight: 400;
+  font-size: 12px;
+}
+.request img {
+  position: absolute;
+  top: 5px;
+  width: 50px;
+  right: 5px;
+}
+
+@media screen and (max-width: 480px) {
+    .admin-hospital{
+        padding: 10px;
+        width: 100%;
+        align-items: center;
+        justify-content: center;
+        margin-left: 25px;
+    }
+  .requests {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 25px;
+  }
+  .request{
+    height: 100px;
+    width: 130px;
+  }
+  .request img{
+    width: 30px;
+  }
+  
+  .request h6{
+    font-size: 12px;
+  }
+  .request p{
+    font-size: 10px;
+  }
+  .dashbord {
+    height: auto;
+  }
+}
+@media screen and (min-width: 480px) and (max-width: 768px){
+ .request{
+  height: 120px;
+ }
+}
