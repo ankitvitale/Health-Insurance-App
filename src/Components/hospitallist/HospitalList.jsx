@@ -37,6 +37,7 @@ const HospitalDetailModal = ({ hospital, onClose }) => {
 function HospitalList() {
     const [data, setData] = useState([]);
     const [selectedHospital, setSelectedHospital] = useState(null); // State for the selected hospital
+    const [search, setSearch] = useState('');
 const navigate = useNavigate()
     useEffect(() => {
         async function getData() {
@@ -102,10 +103,35 @@ const navigate = useNavigate()
     const handleCloseModal = () => {
         setSelectedHospital(null); // Close the modal
     };
+ const filteredData = data
+        .filter(item =>
+            item.hospitalName?.toLowerCase().includes(search.toLowerCase()) ||
+            item.doctorName?.toLowerCase().includes(search.toLowerCase()) ||
+            item.speciality?.toLowerCase().includes(search.toLowerCase()) ||
+            item.tahsil?.toLowerCase().includes(search.toLowerCase()) ||
+            item.email?.toLowerCase().includes(search.toLowerCase()) ||
+            item.mobileNo?.toLowerCase().includes(search.toLowerCase())
+        )
+        .sort((a, b) => a.hospitalName?.localeCompare(b.hospitalName));
 
     return (
         <>
-            <div className="container">
+            <div style={{ padding: '20px', display:"flex",flexDirection:"column",alignItems:"center" }}>
+                <input
+                    type="text"
+                    placeholder="Search hospitals..."
+                    value={search}
+                    onChange={e => setSearch(e.target.value)}
+                    style={{
+                        marginBottom: '15px',
+                        padding: '6px',
+                        width: '100%',
+                        maxWidth: '350px',
+                        border: '1px solid #ccc',
+                        borderRadius: '4px',
+                        
+                    }}
+                />
                 <div className="table-container">
                     <table>
                         <thead>
@@ -120,7 +146,7 @@ const navigate = useNavigate()
                             </tr>
                         </thead>
                         <tbody>
-                            {data.map((item, index) => (
+                            {filteredData.map((item, index) => (
                                 <tr key={index}>
                                     <td className='td'>{item.hospitalName}</td>
                                     <td className='td'>{item.mobileNo}</td>

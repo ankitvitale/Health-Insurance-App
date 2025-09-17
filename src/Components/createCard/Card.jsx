@@ -116,13 +116,12 @@ function Card() {
 
                     <div className="card-footer">
                         <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", paddingTop: "75px", justifyContent: "center", color: "white", fontSize: "8px", paddingRight: "5px" }}> <div style={{ fontSize: "14px", borderBottom: "1px solid white", margin: "2px",fontFamily:"sans-serif" }}>Help Line:</div> <div style={{fontSize:"11px",fontFamily:"sans-serif"}}>9322006810, 9307633246,</div> <div style={{fontSize:"11px",fontFamily:"sans-serif"}}>9021184557, 9665450999</div></div>
-                        <p style={{
+                         <p style={{
                             color: "white",
-                            fontSize: "10px",
-                            marginTop: "23px", padding: "5px", textAlign: "center"
-                        }}>
-                            ADDRESS: PLOT NO - 61, KANCHAN NAGAR, TAL: DIST JALGAON-425001
-                        </p>
+                            fontSize: "7.2px",
+                        marginTop: "35px",padding: "5px",textAlign:"center"}}>
+                        ADDRESS: SHOP NO. 20, 1ST FLOOR,SACHI PLAZA NEAR B.J. MARKET,POLICE CHOWKI,JALGAON-425001
+                    </p>
                     </div>
                 </div>
 
