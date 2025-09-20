@@ -180,10 +180,10 @@ function AllHospitalList() {
                         <thead>
                             <tr>
                                 <th>Hospital Name</th>
-                                <th>Phone Number</th>
+                                {/* <th>Phone Number</th> */}
                                 <th>Doctor Name</th>
                                 <th>Speciality</th>
-                                <th>Email</th>
+                                {/* <th>Email</th> */}
                                 <th>City</th>
                             </tr>
                         </thead>
@@ -191,10 +191,10 @@ function AllHospitalList() {
                             {filteredData.map((item, index) => (
                                 <tr key={index}>
                                     <td>{item.hospitalName}</td>
-                                    <td>{item.mobileNo}</td>
+                                    {/* <td>{item.mobileNo}</td> */}
                                     <td>{item.doctorName}</td>
                                     <td>{item.speciality}</td>
-                                    <td>{item.email}</td>
+                                    {/* <td>{item.email}</td> */}
                                     <td>{item.tahsil}</td>
                                 </tr>
                             ))}
